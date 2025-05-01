@@ -1,89 +1,88 @@
-# Консольное приложение для поиска фильмов по базе данных Sakila
+# Console application for searching movies in Sakila database
 
-## 📌 Описание проекта
-Консольное приложение предназначено для поиска фильмов в базе данных **Sakila**.  
-Проект позволяет пользователям находить фильмы по ключевым словам, жанрам и году выпуска.  
-Кроме того, приложение сохраняет поисковые запросы и предоставляет возможность увидеть самые популярные запросы.
+## 📌 Project Description
+The console application is designed to search for movies in the **Sakila** database.
+The project allows users to find movies by keywords, genres and year of release.
+In addition, the application saves search queries and provides the ability to see the most popular queries.
 
-## 🎯 Цель проекта
-- Реализовать удобный инструмент для поиска фильмов в базе данных **Sakila**.
-- Позволить пользователям находить фильмы по ключевому слову (10+ результатов).
-- Фильтровать фильмы по жанру и году (10+ результатов).
-- Отображать список самых популярных запросов.
+## 🎯 Project goal
+- Implement a convenient tool for searching movies in the **Sakila** database.
+- Allow users to find movies by keyword (10+ results).
+- Filter movies by genre and year (10+ results).
+- Display a list of the most popular queries.
 
-## 🛠 Установка базы данных
+## 🛠 Establishing a connection to the database
 
-### 1️⃣ Установка MySQL Server
-Подключиться к базу данных **Sakila**.
+### 1️⃣ Сonnection MySQL Server
+Connect to the **Sakila** database.
 use sakila; 
 
-### 2️⃣  Настройка конфигурации
-Создайте файл .env или config.py с параметрами подключения к базе данных:
+### 2️⃣  Setting up connection configuration
+Create a .env or config.py file with database connection parameters:
 
 python
 CONFIG = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'ваш_пароль',
-    'database': 'sakila'
+'host': 'localhost',
+'user': 'root',
+'password': 'your_password',
+'database': 'sakila'
 }
 
-Итоговая структура проекта:
+Final structure of the project:
 movie_app/
-├── main.py             # точка входа, запуск меню
-├── db.py               # работа с базой, подключение, инициализация, сохранение запросов
-├── models.py           # модели данных
-├── search.py           # логика поиска, вывод, работа с запросами
-├── utils.py            # красивый вывод
-├── menu.py             # главное меню
-├── menu_search.py      # дополнительное меню
-└── valid_years.py      # валидность года
+├── main.py             # entry point, menu launch
+├── db.py               # working with the database, connecting, initializing, saving queries
+├── models.py           # data models
+├── search.py           ​​# search logic, output, working with queries
+├── utils.py            # beautiful output
+├── menu.py             # main menu
+├── menu_search.py      ​​# additional menu
+└── valid_years.py      # year validity
 
-### 🚀 Доступные команды
-Приложение работает в интерактивном режиме через консоль.
+### 🚀 Available commands
+The application works interactively through the console..
 
-Основные команды:
-Поиск по названию фильма
+Main commands:
 
+-- Search by movie title
 
-Введите ключевое слово: 
-Вывод: Список найденных фильмов.
+Enter keyword:
 
-Поиск по жанру
+Output: List of found movies.
 
+- Search by genre
 
-Введите название жанра: 
-Вывод: Список фильмов данного жанра.
+Enter genre name:
 
-Поиск по году
+Output: List of movies of this genre.
 
+- Search by year
 
-Введите год: 2020
-Вывод: Фильмы, вышедшие в указанном году.
+Enter year:
 
-Вывод популярных запросов
+Output: Movies released in the specified year.
 
+- Display popular queries
 
-Введите команду: popular
-Вывод: самых частых запросов.
+Enter command:
 
-Выход из программы
+Output: most frequent queries.
 
+Exit the program
+Enter command: exit
 
-Введите команду: exit
-
-### 📌 Пример использования
+### 📌 Example of use
 
 $ python main.py
 
-Выберите номер запроса:
-1. Поиск по части названия (10+ результатов)
-2. Поиск по жанру (10+ результатов)
-3. Вывод популярных запросов
-0. Выход
+Select query number:
+1. Search by part of title (10+ results)
+2. Search by genre (10+ results)
+3. Display popular queries
+0. Exit
 
-> Введите ключевое слово: "Ava"
-Вывод:
+> Enter keyword: "Ava"
+Output:
 
 Movies matching keyword 'Ava':
 ╒═════╤═══════════════╤════════════════╤════════════╤══════════╤═══════════════╤══════════╤══════════════════════╤════════════════════════════════╕
@@ -103,7 +102,9 @@ Movies matching keyword 'Ava':
 │  3  │ KICK SAVANNAH │      1992      │   Travel   │   179    │     0.99      │  PG-13   │   Parents Strongly   │ A Emotional Drama of a Monkey  │
 │     │               │                │            │          │               │          │      Cautioned       │ And a Robot who must Defeat a  │
 │     │               │                │            │          │               │          │                      │     Monkey in New Orleans      │
-🏆 Заключение
-Этот проект предоставляет удобный инструмент для поиска фильмов в базе Sakila. Используйте приложение для быстрого поиска, анализа жанров и годов выпуска фильмов.
 
-🎬 Приятного пользования!
+🏆 Conclusion
+This project provides a convenient tool for searching movies in the Sakila database.
+Use the application for quick search, analysis of genres and years of release of movies.
+
+🎬 Enjoy using it!
