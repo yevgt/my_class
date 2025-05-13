@@ -59,5 +59,5 @@ def search_movies(keyword=None, genre=None, year=None, year_range=None, limit=10
         total_movies = cursor_read.fetchone()[0]
         return results, total_movies
     except Exception:
-        logging.exception("Error while searching for movies!")
+        logging.exception(Fore.RED + Style.BRIGHT + "Error while searching for movies!")
 

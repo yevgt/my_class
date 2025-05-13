@@ -8,9 +8,10 @@ import logging
 from rich import print
 from colorama import Fore, Back, Style, init
 
+
 dotenv.load_dotenv(Path('.env'))
 
-# Configuration for connecting READ to the database
+# Konfiguration zum Verbinden von READ mit der Datenbank
 db_config_read = {
     'host': os.environ.get('host_read'),
     'user': os.environ.get('user_read'),
@@ -18,32 +19,32 @@ db_config_read = {
     'database': "sakila"
 }
 
-# Configuration for connecting WRITE to the database
+# Konfiguration für die Verbindung von WRITE mit der Datenbank
 db_config_write = {
     'host': os.environ.get('host_write'),
     'user': os.environ.get('user_write'),
     'password': os.environ.get('password_write'),
     'database': "group_111124_fp_Yevgeniy_Guta"
 }
-
+# Verbindung zur Datenbank zum Lesen mit Fehlerbehandlung bei Verbindungsabbruch
 try:
     conn_read = mysql.connector.connect(**db_config_read)
     cursor_read = conn_read.cursor()
 except mysql.connector.Error as err:
-    logging.exception(f"Connection error READ:: {err}")
-    sys.exit(1) # Terminating the program with an error code
+    logging.exception(Fore.RED + Style.BRIGHT + f"Connection error READ:: {err}")
+    sys.exit(1) # Beenden des Programms mit einem Fehlercode
 else:
-    print("Connection READ successful!")
+    print(Fore.LIGHTBLACK_EX + "Connection READ successful!")
 
 def connect_to_db_write():
     try:
         conn_write = mysql.connector.connect(**db_config_write)
         return conn_write
     except mysql.connector.Error as err:
-        logging.exception(f"Error connecting to recording: {err}")
+        logging.exception(Fore.RED + Style.BRIGHT + f"Error connecting to recording: {err}")
         return None
 
-# Initializing the database and creating a table
+# Initialisieren der Datenbank und Erstellen einer Tabelle
 def init_db():
     conn = connect_to_db_write()
     if conn:
@@ -68,82 +69,85 @@ def init_db():
                            )
                            """)
             conn.commit()
-            print("Database and table initialized successfully!")
+            print(Fore.LIGHTBLACK_EX + "Datenbank und Tabelle erfolgreich initialisiert!")
         except mysql.connector.Error as err:
-            logging.exception(f"Error initializing database: {err}")
+            logging.exception(Fore.RED + Style.BRIGHT + f"Fehler beim Initialisieren der Datenbank: {err}")
         finally:
             conn.close()
 
 
-# Saving or updating a query
+# Speichern oder Aktualisieren einer Abfrage
 def save_search_query(query):
     conn = connect_to_db_write()
     if conn:
         try:
             cursor = conn.cursor()
-            # Check: if a space or empty string is entered, write the value NULL
+            # Prüfung: Wenn ein Leerzeichen oder eine leere Zeichenfolge eingegeben wird, schreiben Sie den Wert NULL
             if isinstance(query, str) and query.strip() == "":
                 query = None
 
-            # Checking for the existence of a request
+            # Überprüfen, ob eine Anfrage vorhanden ist
             cursor.execute("SELECT * FROM search_queries WHERE query = %s", (query,))
             result = cursor.fetchone()
 
             if result:
-                # Increment the usage counter if the entry exists
-                search_count = result[2] if len(result) > 2 else 0  # Protection against incorrect amount of data
+                # Erhöhen Sie den Nutzungszähler, wenn der Eintrag vorhanden ist
+                search_count = result[2] if len(result) > 2 else 0  # Schutz vor falscher Datenmenge
                 cursor.execute("UPDATE search_queries SET search_count = search_count + 1 WHERE query = %s", (query,))
             else:
-                # Adding a new request if the record does not exist
+                # Hinzufügen einer neuen Anfrage, wenn der Datensatz nicht vorhanden ist
                 cursor.execute("INSERT INTO search_queries (query) VALUES (%s)", (query,))
 
             conn.commit()
             cursor.close()
         except mysql.connector.Error as err:
-            logging.exception(f"Error saving request: {err}")
+            logging.exception(Fore.RED + Style.BRIGHT + f"Fehler beim Speichern der Anfrage: {err}")
         finally:
             conn.close()
 
+# Ausgabefunktion für beliebte Abfragen
 def print_search_count():
     try:
         conn = connect_to_db_write()
         cursor = conn.cursor()
 
-        # Getting the contents of the search_count column
+        # Abrufen des Inhalts der Spalte „search_count“
         cursor.execute('''SELECT query, search_count
                           FROM search_queries
                           ORDER BY search_count DESC LIMIT 5''')
         results = cursor.fetchall()
 
-        # Outputting the search_count column values
-        print("\nPopular queries:")
+        # Ausgeben der Werte der Spalte search_count
+        print(Fore.LIGHTBLUE_EX + "\n === Beliebte Suchanfragen: === " + Style.RESET_ALL)
         for row in results:
-            print(f"'{row[0]}' total: {row[1]} ")
+            print(f"' {row[0]} --- gesamt: {row[1]} mal")
         cursor.close()
         conn.close()
 
         while True:
             user_choice = input(
-                "Would you like to continue your search with a new query? "
-                "\n'-' exit to main menu \n '=' exit the program:").strip().lower()
+                Fore.LIGHTYELLOW_EX + "Möchten Sie mit neuen Filtern weitersuchen?"
+                + Fore.LIGHTYELLOW_EX + "\n'-' Zurück zum Hauptmenü \n '=' Ausstieg aus dem Programm:").strip().lower()
             if user_choice == '-':
-                return #  Return to main menu
+                return   # Anzeige im Hauptmenü
             elif user_choice == '=':
-                print("Exiting the program. Goodbye!")
-                exit()
+                print(Fore.LIGHTGREEN_EX +"Das Programm wird beendet. Auf Wiedersehen!  ;) ")
+                exit()  # Sicherheitsfunktionen
             else:
-                print("Incorrect input. Try again.")
+                print("Falsche Eingabe. Bitte versuchen Sie es erneut.")
 
     except mysql.connector.Error as err:
-        logging.exception(f"Error while executing popularity query: {err}")
+        print(f"Fehler beim Ausführen der Anfrage: {err}")
 
-init_db()  # Initializing the database
+init_db()  # Initialisieren der Datenbank
 
+
+# Die Funktion gibt eine Liste von Genres zur Auswahl zurück
 def get_genres():
     query = "SELECT category_id, name FROM category;"
     cursor_read.execute(query)
     genres = cursor_read.fetchall()
-    print("\nAvailable genres:")
+    print("\n=== Verfügbare Genres: ===")
     for num, genre in enumerate(genres, start=1):
         print(f"{num}. {genre[1]}")
     return genres

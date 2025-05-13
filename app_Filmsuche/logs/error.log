@@ -1,0 +1,101 @@
+2025-05-08 14:05:05,269 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 109, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 14:08:07,454 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 109, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 14:13:57,038 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 109, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 16:41:58,473 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 105, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 16:48:37,182 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 104, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Jahr'
+2025-05-08 17:44:59,436 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 131, in search_by_genre
+    return search_by_genre()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 103, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 17:46:14,229 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 103, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 18:23:42,264 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 103, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?
+2025-05-08 18:24:10,876 - ERROR - [31m[1mCritical error in main file.
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\main.py", line 19, in main
+    menu = main_menu()
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu.py", line 22, in main_menu
+    search_by_genre()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\project\app_Filmsuche\menu_search.py", line 103, in search_by_genre
+    movies, total_count = search_movies(**kwargs)
+                          ~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: search_movies() got an unexpected keyword argument 'Genre'. Did you mean 'genre'?

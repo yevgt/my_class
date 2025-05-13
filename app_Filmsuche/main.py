@@ -3,11 +3,11 @@ import logging
 from menu import main_menu
 from colorama import Fore, Back, Style, init
 
-# Create a folder for logs if it does not exist
+# Erstellen Sie einen Ordner für Protokolle, falls dieser nicht vorhanden ist
 if not os.path.exists('logs'):
     os.makedirs('logs')
 
-# Setting up error logging
+# Einrichten der Fehlerprotokollierung
 logging.basicConfig(
     filename='logs/error.log',
     level=logging.ERROR,
@@ -19,7 +19,7 @@ def main():
         menu = main_menu()
         menu.run()
     except Exception:
-        logging.exception("Critical error in main file.")
+        logging.exception(Fore.RED + Style.BRIGHT + "Critical error in main file.")
 
 if __name__ == "__main__":
     main()
