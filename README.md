@@ -1,24 +1,24 @@
-# Konsolenanwendung zum Suchen von Filmen in der Sakila-Datenbank
+# Консольное приложение для поиска фильмов по базе данных Sakila
 
-## 📌 Projektbeschreibung
-Konsolenanwendung zum Suchen nach Filmen in der **Sakila**-Datenbank.
-Das Projekt ermöglicht es Benutzern, Filme nach Schlüsselwörtern, Genres und Erscheinungsjahr zu finden.
-Darüber hinaus speichert die Anwendung Suchanfragen und bietet die Möglichkeit, die beliebtesten Suchanfragen anzuzeigen.
+## 📌 Описание проекта
+Консольное приложение предназначено для поиска фильмов в базе данных **Sakila**.  
+Проект позволяет пользователям находить фильмы по ключевым словам, жанрам и году выпуска.  
+Кроме того, приложение сохраняет поисковые запросы и предоставляет возможность увидеть самые популярные запросы.
 
-## 🎯 Projektziel
-- Implementieren Sie ein praktisches Tool zum Suchen von Filmen in der **Sakila**-Datenbank.
-- Ermöglicht Benutzern, Filme nach Stichworten zu finden (10+ Ergebnisse).
-- Filtern Sie Filme nach Genre und Jahr (10+ Ergebnisse).
-- Zeigen Sie eine Liste der am häufigsten gestellten Fragen an.
+## 🎯 Цель проекта
+- Реализовать удобный инструмент для поиска фильмов в базе данных **Sakila**.
+- Позволить пользователям находить фильмы по ключевому слову (10+ результатов).
+- Фильтровать фильмы по жанру и году (10+ результатов).
+- Отображать список самых популярных запросов.
 
-## 🛠 Installieren der Datenbank
+## 🛠 Установка базы данных
 
-### 1️⃣ Installieren des MySQL-Servers
-Stellen Sie eine Verbindung zur **Sakila**-Datenbank her.
+### 1️⃣ Установка MySQL Server
+Подключиться к базу данных **Sakila**.
 use sakila; 
 
-### 2️⃣  Einrichten der Konfiguration
-Erstellen Sie eine .env- oder config.py-Datei mit Ihren Datenbankverbindungsparametern:
+### 2️⃣  Настройка конфигурации
+Создайте файл .env или config.py с параметрами подключения к базе данных:
 
 python
 CONFIG = {
@@ -28,64 +28,66 @@ CONFIG = {
     'database': 'sakila'
 }
 
-Endgültige Struktur des Projekts:
+Итоговая структура проекта:
 movie_app/
-├── main.py             # Einstiegspunkt, Startmenü
-├── db.py               # Arbeiten mit der Datenbank, Verbindung, Initialisierung, Speichern von Abfragen
-├── models.py           # Datenmodelle
-├── search.py           # Suchlogik, Ausgabe, Arbeiten mit Abfragen
-├── utils.py            # schöner Abschluss
-├── menu.py             # Hauptmenü
-├── menu_search.py      # Zusatzmenü
-└── valid_years.py      # Gültigkeit des Jahres
+├── main.py             # точка входа, запуск меню
+├── db.py               # работа с базой, подключение, инициализация, сохранение запросов
+├── models.py           # модели данных
+├── search.py           # логика поиска, вывод, работа с запросами
+├── utils.py            # красивый вывод
+├── menu.py             # главное меню
+├── menu_search.py      # дополнительное меню
+└── valid_years.py      # валидность года
 
-### 🚀 Verfügbare Befehle
-Die Anwendung funktioniert interaktiv über die Konsole..
+### 🚀 Доступные команды
+Приложение работает в интерактивном режиме через консоль.
 
-Grundlegende Befehle:
-Suche nach Filmtitel
-
-
-Stichwort eingeben: 
-Ausgabe: Liste der gefundenen Filme.
-
-Suche nach Genre
+Основные команды:
+Поиск по названию фильма
 
 
-Geben Sie den Genrenamen ein:
-Fazit: Liste von Filmen dieses Genres.
+Введите ключевое слово: 
+Вывод: Список найденных фильмов.
 
-Suche nach Jahr
+Поиск по жанру
 
 
-Jahr eingeben: 2020
-Fazit: Im angegebenen Jahr erschienene Filme.
+Введите название жанра: 
+Вывод: Список фильмов данного жанра.
 
-Beliebte Suchanfragen anzeigen
+Поиск по году
 
-Wählen Sie den Menüpunkt: 3
-Fazit: Die häufigsten Anfragen.
 
-Beenden des Programms
+Введите год: 2020
+Вывод: Фильмы, вышедшие в указанном году.
 
-Wählen Sie den Menüpunkt: 0
+Вывод популярных запросов
 
-### 📌 Anwendungsbeispiel
+
+Введите команду: popular
+Вывод: самых частых запросов.
+
+Выход из программы
+
+
+Введите команду: exit
+
+### 📌 Пример использования
 
 $ python main.py
 
-Anfragenummer auswählen:
-1. Suche nach Namensteil (10+ Ergebnisse)
-2. Suche nach Genre (10+ Ergebnisse)
-3. Beliebte Suchanfragen anzeigen
-0. Ausfahrt
+Выберите номер запроса:
+1. Поиск по части названия (10+ результатов)
+2. Поиск по жанру (10+ результатов)
+3. Вывод популярных запросов
+0. Выход
 
-> Stichwort eingeben: "Ava"
-Abschluss:
+> Введите ключевое слово: "Ava"
+Вывод:
 
-Filme, die mit dem Schlüsselwort übereinstimmen 'Ava':
+Movies matching keyword 'Ava':
 ╒═════╤═══════════════╤════════════════╤════════════╤══════════╤═══════════════╤══════════╤══════════════════════╤════════════════════════════════╕
-│  #  │     Title     │Erscheinungsjahr│  Kategorie │  Länge   │  Mietpreis    │Bewertung │Bewertungsbeschreibung│          Beschreibung          │
+│  #  │     Title     │  Release Year  │  Category  │  Length  │  Rental Rate  │  Rating  │  Rating Description  │          Description           │
 ╞═════╪═══════════════╪════════════════╪════════════╪══════════╪═══════════════╪══════════╪══════════════════════╪════════════════════════════════╡
 │  1  │ SAVANNAH TOWN │      1998      │   Drama    │    84    │     0.99      │  PG-13   │   Parents Strongly   │   A Awe-Inspiring Tale of a    │
 │     │               │                │            │          │               │          │      Cautioned       │    Astronaut And a Database    │
@@ -101,11 +103,7 @@ Filme, die mit dem Schlüsselwort übereinstimmen 'Ava':
 │  3  │ KICK SAVANNAH │      1992      │   Travel   │   179    │     0.99      │  PG-13   │   Parents Strongly   │ A Emotional Drama of a Monkey  │
 │     │               │                │            │          │               │          │      Cautioned       │ And a Robot who must Defeat a  │
 │     │               │                │            │          │               │          │                      │     Monkey in New Orleans      │
+🏆 Заключение
+Этот проект предоставляет удобный инструмент для поиска фильмов в базе Sakila. Используйте приложение для быстрого поиска, анализа жанров и годов выпуска фильмов.
 
-🏆 Abklemmung
-Dieses Projekt bietet ein einzigartiges Instrument zur Aufnahme von Filmen auf der Basis von Sakila. Verwenden Sie die Anwendung zum Erstellen von Fotos, 
-zum Analysieren von Filmen und zum Herunterladen von Filmen.
-
-🎬 Persönliche Beratung!
-
-:)
+🎬 Приятного пользования!
