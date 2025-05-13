@@ -1,0 +1,4 @@
+![hw1.jpg](../../Documents/%D0%BA%D1%83%D1%80%D1%81/2025/05/25%2005%2012%20%28Python%20Advanced_German%29/Python%20Adv%202%20Flask%20%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC%201/hw1.jpg)
+![hw2.jpg](../../Documents/%D0%BA%D1%83%D1%80%D1%81/2025/05/25%2005%2012%20%28Python%20Advanced_German%29/Python%20Adv%202%20Flask%20%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC%201/hw2.jpg)
+![hw3.jpg](../../Documents/%D0%BA%D1%83%D1%80%D1%81/2025/05/25%2005%2012%20%28Python%20Advanced_German%29/Python%20Adv%202%20Flask%20%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC%201/hw3.jpg)
+![hw4.jpg](../../Documents/%D0%BA%D1%83%D1%80%D1%81/2025/05/25%2005%2012%20%28Python%20Advanced_German%29/Python%20Adv%202%20Flask%20%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC%201/hw4.jpg)
