@@ -1,14 +1,6 @@
 import pytest
 from simple_math import SimpleMath
 
-class SimpleMath:
-    def divide(self, a, b):
-        if b == 0:
-            raise ZeroDivisionError("Cannot divide by zero")
-        return a / b
-
-math = SimpleMath()
-
 @pytest.fixture
 def math():
     return SimpleMath()
@@ -34,3 +26,11 @@ def test_cube_zero(math):
 def test_divide_by_zero(math):
     with pytest.raises(ZeroDivisionError):
         math.divide(1, 0)
+
+@pytest.mark.parametrize("value, expected", [(2, 4), (-3, 9), (0, 0)])
+def test_square_param(math, value, expected):
+    assert math.square(value) == expected
+
+@pytest.mark.parametrize("value, expected", [(3, 27), (-3, -27), (0, 0)])
+def test_cube_param(math, value, expected):
+    assert math.cube(value) == expected
