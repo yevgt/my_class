@@ -7,7 +7,6 @@ class SimpleMath:
         """Возвращает куб числа"""
         return x * x * x
 
-class SimpleMath:
     def divide(self, a, b):
         if b == 0:
             raise ZeroDivisionError("Cannot divide by zero")
