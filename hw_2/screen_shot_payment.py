@@ -14,8 +14,8 @@ try:
     sleep(10)
     # Поиск ссылки "Способы оплаты" и клик
     # about_link = driver.find_element(By.LINK_TEXT, "Способы оплаты")
-    about_link = driver.find_element(By.LINK_TEXT, "Zahlungsarten")
-    about_link.click()
+    payment_link = driver.find_element(By.LINK_TEXT, "Zahlungsarten")
+    payment_link.click()
     # element = driver.find_element(By.XPATH,"//*[contains(text(), 'Способы оплаты обучения')]")
     # Изменение размера окна
     # driver.set_window_size(640, 460)
