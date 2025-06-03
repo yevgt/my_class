@@ -49,6 +49,11 @@ def test_titles2(driver):
         elif not all(link.is_displayed() for link in links):
             print(f'Внимание: ссылка "{text}" найдена, но не отображается')
 
+def test_titles2(driver):
+    # Проверка наличия ссылок
+    links_texts = driver.find_elements(By.LINK_TEXT, ["Программы", "Способы оплаты", "Новости", "О нас", "Отзывы"])
+    assert links_texts.is_displayed()
+
 # Кнопки переключения языка (ru и de)
 def test_leng_ru_de(driver):
     try:
@@ -60,18 +65,24 @@ def test_leng_ru_de(driver):
     except NoSuchElementException:
         print("Кнопки переключения языка не найдены")
 
-# Кликнуть по иконке с телефонной трубкой
-def test_phone_icon(driver):
-    try:
-        tel_link = driver.find_element(By.CSS_SELECTOR, ".phone-icon")
-        # tel_link = driver.find_element(By.XPATH, "//a[contains(@href, 'tel:')]")
-        tel_link.click()
-        print("Клик выполнен")
-        sleep(5)
-        sms_form = driver.find_element(By.XPATH,
-        "//*[contains(text(), 'Если вы не дозвонились, заполните форму на сайте. Мы свяжемся с вами')]")
-        assert sms_form.is_displayed()
-    except NoSuchElementException as e:
-        print(f"Ошибка: {e}")
 
-driver.quit()
+# Кликнуть по иконке с телефонной трубкой
+def test_phone_icon_and_message(driver):
+    # Клик по иконке с телефонной трубкой
+    try:
+        phone_icon = driver.find_element(By.XPATH, "//img[contains(@src, 'Group_3800.svg')]")
+        phone_icon.click()
+        sleep(5)
+    except NoSuchElementException:
+        print("'Кнопка не найдена'")
+
+        # Проверка появления нужного текста
+    try:
+        message = driver.find_element(By.XPATH,
+                                      "//*[contains(text(), 'Если вы не дозвонились, заполните форму на сайте. "
+                                      "Мы свяжемся с вами')]")
+        assert message.is_displayed()
+    except NoSuchElementException:
+        print("Сообщение не отобразилось!")
+
+
