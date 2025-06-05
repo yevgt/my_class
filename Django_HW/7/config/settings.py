@@ -140,13 +140,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# DATABASES = {
+#     'default': env.db(),  # Основная база (PostgreSQL)
+#     'extra': env.db_url(  # Альтернативная база (SQLite)
+#         'SQLITE_URL',
+#         default='sqlite:////tmp/my-tmp-sqlite.db'
+#     )
+# }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
