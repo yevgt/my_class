@@ -2,6 +2,7 @@ from time import sleep
 import pytest
 import os
 from selenium import webdriver
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -89,3 +90,25 @@ class TestDragAndDrop:
         assert len(gallery_items) == 3, "В галерее должно остаться 3 фотографии после перетаскивания"
 
         print("Фотография успешно перемещается в корзину. В галерее осталось 3 фотографии.")
+
+
+class TestFillForm:
+    def test_fill_form_and_check_alert(self,browser):
+        url = "http://suninjuly.github.io/huge_form.html"
+        browser.get(url)
+
+        # Решение
+        input_text = browser.find_elements(By.TAG_NAME, "input")
+        for string in input_text:
+            string.send_keys("test")
+        # time.sleep(5)
+        button = browser.find_element(By.CLASS_NAME, "btn-default")
+        button.click()
+
+        wait = WebDriverWait(browser, 10)
+        alert = wait.until(EC.alert_is_present())
+        alert_text = Alert(browser).text
+        expected_substring = "Congrats, you've passed the task!"
+        assert expected_substring in alert_text, f"Ожидаемая строка '{expected_substring}' отсутствует в alert: '{alert_text}'"
+
+        alert.accept()
