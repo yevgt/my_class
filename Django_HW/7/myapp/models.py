@@ -5,8 +5,10 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название категории")
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        db_table = 'task_manager_category'  # Имя таблицы в базе данных
+        verbose_name = "Категория"     # "Category" Человекочитаемое имя модели
+        verbose_name_plural = "Категории"  # "Categories"  Человекочитаемое множественное число имени модели
+        unique_together = ('name',)  # Уникальность по полю name
 
     def __str__(self):
         return self.name
@@ -27,9 +29,11 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
 
     class Meta:
-        unique_together = ('title', 'deadline')
-        verbose_name='Задача'
-        verbose_name_plural='Задачи'
+        unique_together = ('title',) # 'deadline') # Уникальность по полю title
+        verbose_name='Задача'  # 'Task' Человекочитаемое имя модели
+        verbose_name_plural='Задачи' # 'Tasks'  Человекочитаемое множественное число имени модели
+        db_table = 'task_manager_task' # Имя таблицы в базе данных
+        ordering = ['-created_at']  # Сортировка по убыванию даты создания
 
     def __str__(self):
         return self.title
@@ -43,8 +47,11 @@ class SubTask(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
 
     class Meta:
-        verbose_name='Подзадача'
-        verbose_name_plural='Подзадачи'
+        db_table = 'task_manager_subtask'  # Имя таблицы в базе данных
+        ordering = ['-created_at']  # Сортировка по убыванию даты создания
+        verbose_name='Подзадача' # 'SubTask' Человекочитаемое имя модели
+        verbose_name_plural='Подзадачи'  # 'SubTasks'  Человекочитаемое множественное число имени модели
+        unique_together = ('title',)  # Уникальность по полю title
 
     def __str__(self):
         return self.title
