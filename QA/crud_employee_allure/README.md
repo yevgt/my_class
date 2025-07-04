@@ -21,7 +21,7 @@ Before running the tests, make sure your virtual environment is activated and al
 
 ## 🚀 Running Automated Tests with Allure Report (Windows)
 
-### 📂 Шаги
+### 📂 Staps
 
 1. Open PowerShell in the project directory.
 
