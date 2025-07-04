@@ -55,7 +55,7 @@ def test_get_employee_info(api):
 
     assert resp.status_code == 200
     assert info["id"] == employee_id
-    assert info["first_name"] == "Bob", f"Ожидалось 'Peter', получено '{info['first_name']}'"
+    assert info["first_name"] == "Bob", f"Ожидалось 'Bob', получено '{info['first_name']}'"
 
 
 def test_change_employee(api):
