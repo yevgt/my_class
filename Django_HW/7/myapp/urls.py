@@ -4,7 +4,9 @@ from .views import (
     TaskCreateView,
     TaskListView,
     TaskDetailView,
-    TaskStatsView
+    TaskStatsView,
+    SubTaskListCreateView,
+    SubTaskDetailUpdateDeleteView,
 )
 
 urlpatterns = [
@@ -13,4 +15,6 @@ urlpatterns = [
     path('tasks/', TaskListView.as_view(), name='task-list'), # Список задач
     path('tasks/<int:id>/', TaskDetailView.as_view(), name='task-detail'), # Получить задачу по ID
     path('tasks/stats/', TaskStatsView.as_view(), name='task-stats'),  # Статистика задач
+    path('subtasks/', SubTaskListCreateView.as_view(), name='subtask-list-create'),
+    path('subtasks/<int:id>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail'),
 ]
