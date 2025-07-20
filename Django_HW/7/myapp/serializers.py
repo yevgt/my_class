@@ -7,8 +7,39 @@ from .models import (
     Category,
 )
 
+# Сериализатор для создания/обновления категории с проверкой уникальности
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', 'name', 'description', 'created_at', 'updated_at']
+
+    def validate_name(self, value):
+        # Проверка уникальности названия категории. Выполняется при валидации каждого поля.
+        if self.instance:
+            # Если мы обновляем существующий объект
+            if Category.objects.exclude(id=self.instance.id).filter(name__iexact=value).exists():
+                raise ValidationError('Категория с таким названием уже существует.')
+        else:
+            # При создании новой категории
+            if Category.objects.filter(name__iexact=value).exists():
+                raise ValidationError('Категория с таким названием уже существует.')
+        return value
+
+    def create(self, validated_data):
+        # Валидация уже пройдена, просто создаём
+        return Category.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        # Обновляем поля (уже прошли валидацию)
+        instance.name = validated_data.get('name', instance.name) # обновляем имя категории
+        instance.description = validated_data.get('description', instance.description)  # Обновляем описание
+        instance.save()
+        return instance
+
 # Сериализатор для вывода задач
 class TaskSerializer(serializers.ModelSerializer):
+    categories = CategorySerializer(many=True, read_only=True)
+
     class Meta:
         model = Task
         fields = ['id',
@@ -93,30 +124,3 @@ class SubTaskCreateSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['created_at']
 
-# Сериализатор для создания/обновления категории с проверкой уникальности
-class CategoryCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = ['id', 'name']  # укажите нужные поля
-
-    def validate_name(self, value):
-        # Проверка уникальности названия категории. Выполняется при валидации каждого поля.
-        if self.instance:
-            # Если мы обновляем существующий объект
-            if Category.objects.exclude(id=self.instance.id).filter(name__iexact=value).exists():
-                raise ValidationError('Категория с таким названием уже существует.')
-        else:
-            # При создании новой категории
-            if Category.objects.filter(name__iexact=value).exists():
-                raise ValidationError('Категория с таким названием уже существует.')
-        return value
-
-    def create(self, validated_data):
-        # Валидация уже пройдена, просто создаём
-        return Category.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        # Обновляем поля (уже прошли валидацию)
-        instance.name = validated_data.get('name', instance.name)
-        instance.save()
-        return instance

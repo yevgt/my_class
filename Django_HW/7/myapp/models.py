@@ -1,8 +1,35 @@
 from django.db import models
+from django.utils import timezone
 
-# Create your models here.
+
+# кастомный менеджер
+class CategoryManager(models.Manager):
+    def get_queryset(self):
+        # возвращаем только не удаленные категории
+        return super().get_queryset().filter(is_deleted=False)
+
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название категории")
+    description = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # поля для мягкого удаления
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+
+    objects = CategoryManager()  # ← основной менеджер
+    all_objects = models.Manager()  # ← доступ ко всем записям, включая "удаленные"
+
+    def delete(self, *args, **kwargs):
+        # мягкое удаление — обновляем флаги, но не удаляем запись из базы
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
+
+    def hard_delete(self):
+        # метод полного удаления записи
+        super().delete()
 
     class Meta:
         db_table = 'task_manager_category'  # Имя таблицы в базе данных

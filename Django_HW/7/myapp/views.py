@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from rest_framework import generics, status, filters
+from rest_framework import viewsets, generics, status, filters
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
@@ -8,13 +9,14 @@ from django.utils import timezone
 from django.db.models import Count, Q
 from django_filters.rest_framework import DjangoFilterBackend
 import datetime
-from .models import Task, SubTask
+from .models import Task, SubTask, Category
 from .serializers import (
     TaskSerializer,
     TaskCreateSerializer,
     TaskDetailSerializer,
     SubTaskSerializer,
     SubTaskCreateSerializer,
+    CategorySerializer
 )
 
 def hello(request):
@@ -245,3 +247,24 @@ class SubTaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = SubTask.objects.all()
     serializer_class = SubTaskSerializer
     lookup_field = 'pk'
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    # queryset = Category.objects.filter(is_deleted=False)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+    def destroy(self, request, *args, **kwargs):
+        category = self.get_object()
+        # category.is_deleted = True
+        # category.save()
+        category.delete()
+        return Response({"message": "Категория мягко удалена."}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, methods=['get'], url_path='count-tasks')
+    def count_tasks(self, request, pk=None):
+        data = (
+            Category.all_objects.filter(is_deleted=False)
+            .annotate(task_count=Count('tasks'))
+            .values('id', 'name', 'task_count')
+        )
+        return Response(data)
