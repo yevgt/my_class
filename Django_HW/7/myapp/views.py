@@ -4,7 +4,7 @@ from rest_framework import viewsets, generics, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.pagination import PageNumberPagination
+from rest_framework.pagination import PageNumberPagination, CursorPagination
 from django.utils import timezone
 from django.db.models import Count, Q
 from django_filters.rest_framework import DjangoFilterBackend
