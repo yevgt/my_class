@@ -8,7 +8,7 @@ from .models import (
 )
 
 # Сериализатор для создания/обновления категории с проверкой уникальности
-class CategorySerializer(serializers.ModelSerializer):
+class CategoryCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'name', 'description', 'created_at', 'updated_at']
@@ -38,7 +38,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 # Сериализатор для вывода задач
 class TaskSerializer(serializers.ModelSerializer):
-    categories = CategorySerializer(many=True, read_only=True)
+    categories = CategoryCreateSerializer(many=True, read_only=True)
 
     class Meta:
         model = Task
@@ -86,13 +86,14 @@ class TaskDetailSerializer(serializers.ModelSerializer):
                   'subtasks'
         ]
 
-        def get_subtasks(self, obj):
-            subtasks = obj.subtasks.all().order_by('-created_at')  # предполагается related_name='subtasks'
-            return SubTaskSerializer(subtasks, many=True).data
+    def get_subtasks(self, obj):
+        subtasks = obj.subtasks.all().order_by('-created_at')  # предполагается related_name='subtasks'
+        return SubTaskSerializer(subtasks, many=True).data
 
 # Сериализатор для вывода подзадач с фильтрацией/поиском
 class SubTaskSerializer(serializers.ModelSerializer):
     task_title = serializers.CharField(source='task.title', read_only=True)
+    created_at = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = SubTask
@@ -123,4 +124,3 @@ class SubTaskCreateSerializer(serializers.ModelSerializer):
                   'created_at',
         ]
         read_only_fields = ['created_at']
-

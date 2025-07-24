@@ -16,7 +16,7 @@ from .serializers import (
     TaskDetailSerializer,
     SubTaskSerializer,
     SubTaskCreateSerializer,
-    CategorySerializer
+    CategoryCreateSerializer,
 )
 
 def hello(request):
@@ -251,7 +251,7 @@ class SubTaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 class CategoryViewSet(viewsets.ModelViewSet):
     # queryset = Category.objects.filter(is_deleted=False)
     queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    serializer_class = CategoryCreateSerializer
 
     def destroy(self, request, *args, **kwargs):
         category = self.get_object()
