@@ -4,7 +4,9 @@ from rest_framework import viewsets, generics, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import PageNumberPagination, CursorPagination
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.utils import timezone
 from django.db.models import Count, Q
 from django_filters.rest_framework import DjangoFilterBackend
@@ -18,6 +20,8 @@ from .serializers import (
     SubTaskCreateSerializer,
     CategoryCreateSerializer,
 )
+from .permissions import IsOwnerOrReadOnly
+
 
 def hello(request):
     return HttpResponse('Hello, Yevgeniy!')
@@ -69,6 +73,8 @@ class TaskListCreateView(generics.ListCreateAPIView):
     # queryset = Task.objects.all()
     # serializer_class = TaskSerializer
 
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
@@ -110,6 +116,8 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TaskDetailSerializer
     lookup_field = 'id'
 
+    permission_classes = [IsAuthenticated]
+
 # # Агрегирующий эндпоинт для статистики задач
 # class TaskStatsView(APIView):
 #     def get(self, request):
@@ -129,6 +137,8 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
 #         return Response(stats)
 
 class TaskStatsView(generics.GenericAPIView):
+    permission_classes = [IsAdminUser]
+
     def get(self, request):
         total_tasks = Task.objects.count()
         status_counts = (
@@ -231,6 +241,9 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
     queryset = SubTask.objects.all().order_by('-created_at')  # сортировка от новых к старым
     # serializer_class = SubTaskSerializer
     pagination_class = SubTaskPagination
+
+    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
@@ -248,10 +261,18 @@ class SubTaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SubTaskSerializer
     lookup_field = 'pk'
 
+    # только авторизованные пользователи смогут получать доступ к вашему API для категорий
+    permission_classes = [IsAuthenticated]
+
 class CategoryViewSet(viewsets.ModelViewSet):
     # queryset = Category.objects.filter(is_deleted=False)
     queryset = Category.objects.all()
     serializer_class = CategoryCreateSerializer
+
+    # чтение любому пользователю, но запись — только аутентифицированным
+    # permission_classes = [IsAuthenticatedOrReadOnly]
+    # применяем кастомный пермишен
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
     def destroy(self, request, *args, **kwargs):
         category = self.get_object()

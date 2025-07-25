@@ -36,3 +36,109 @@
 [2025-07-21 23:15:46,485] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=(); alias=default
 [2025-07-21 23:15:51,371] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."created_at" > '2025-07-21 21:15:32.393402') ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=('2025-07-21 21:15:32.393402',); alias=default
 [2025-07-21 23:16:35,229] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."created_at" < '2025-07-21 21:15:41.040676') ORDER BY "task_manager_category"."created_at" DESC LIMIT 7; args=('2025-07-21 21:15:41.040676',); alias=default
+[2025-07-24 12:55:50,099] DEBUG django.db.backends (0.006) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-24 12:55:50,112] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-24 12:57:41,620] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=(); alias=default
+[2025-07-24 12:57:46,354] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."created_at" > '2025-07-21 21:15:32.393402') ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=('2025-07-21 21:15:32.393402',); alias=default
+[2025-07-24 12:58:25,725] DEBUG django.db.backends (0.005) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-24 12:58:25,733] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-24 12:58:32,789] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-24 12:58:32,796] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-24 12:58:32,798] DEBUG django.db.backends (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-24 12:58:32,800] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-24 12:58:32,846] DEBUG django.db.backends (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-24 12:58:32,848] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-24 12:58:32,850] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+[2025-07-24 12:58:32,853] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+[2025-07-24 12:58:32,858] DEBUG django.db.backends (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(1,); alias=default
+[2025-07-24 12:58:32,860] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+[2025-07-24 12:58:32,862] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+[2025-07-24 12:58:32,865] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('user', 'group', 'permission')); args=('auth', 'user', 'group', 'permission'); alias=default
+[2025-07-24 12:58:32,868] DEBUG django.db.backends (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(2, 3, 4); alias=default
+[2025-07-24 12:58:32,870] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+[2025-07-24 12:58:32,872] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+[2025-07-24 12:58:32,874] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+[2025-07-24 12:58:32,877] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(5,); alias=default
+[2025-07-24 12:58:32,879] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+[2025-07-24 12:58:32,880] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+[2025-07-24 12:58:32,881] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+[2025-07-24 12:58:32,883] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(6,); alias=default
+[2025-07-24 12:58:32,884] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+[2025-07-24 12:58:32,885] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+[2025-07-24 12:58:32,887] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'myapp' AND "django_content_type"."model" IN ('category', 'subtask', 'task')); args=('myapp', 'category', 'subtask', 'task'); alias=default
+[2025-07-24 12:58:32,888] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 9, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(8, 9, 7); alias=default
+[2025-07-24 12:58:32,890] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+[2025-07-25 01:16:28,523] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:16:28,528] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:21:11,630] DEBUG django.db.backends (0.006) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'your_username' LIMIT 21; args=('your_username',); alias=default
+[2025-07-25 01:21:49,555] DEBUG django.db.backends (0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-25 01:23:52,579] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-25 01:35:58,129] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:35:58,134] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:41:28,429] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:41:28,436] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:43:01,737] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:43:01,744] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:44:12,077] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:44:12,084] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:50:35,301] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:50:35,309] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:51:09,001] DEBUG django.db.backends (0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 01:51:09,008] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 01:58:12,089] DEBUG django.db.backends (0.002) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=(); alias=default
+[2025-07-25 01:58:20,446] DEBUG django.db.backends (0.002) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=(); alias=default
+[2025-07-25 01:58:23,450] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."created_at" > '2025-07-21 21:15:32.393402') ORDER BY "task_manager_category"."created_at" ASC LIMIT 7; args=('2025-07-21 21:15:32.393402',); alias=default
+[2025-07-25 01:58:31,885] DEBUG django.db.backends (0.002) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."created_at" < '2025-07-21 21:15:41.040676') ORDER BY "task_manager_category"."created_at" DESC LIMIT 7; args=('2025-07-21 21:15:41.040676',); alias=default
+[2025-07-25 02:07:36,007] DEBUG django.db.backends (0.004) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 02:07:36,018] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 02:22:03,910] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 02:22:03,918] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 02:22:42,726] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 02:22:42,738] DEBUG django.db.backends (0.002) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 02:24:12,850] DEBUG django.db.backends (0.002) SELECT COUNT(*) AS "__count" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted"; args=(); alias=default
+[2025-07-25 02:24:12,853] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" LIMIT 5; args=(); alias=default
