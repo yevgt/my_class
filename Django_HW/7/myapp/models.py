@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 # кастомный менеджер
 class CategoryManager(models.Manager):
@@ -55,6 +57,15 @@ class Task(models.Model):
     deadline = models.DateTimeField(null=True, blank=True, verbose_name="Дедлайн")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
 
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='tasks',
+        verbose_name="Владелец",
+    )
+
     class Meta:
         unique_together = ('title',) # 'deadline') # Уникальность по полю title
         verbose_name='Задача'  # 'Task' Человекочитаемое имя модели
@@ -72,6 +83,15 @@ class SubTask(models.Model):
     status = models.CharField(max_length=20, choices=Task.STATUS_CHOICES, default='new', verbose_name="Статус подзадачи")
     deadline = models.DateTimeField(null=True, blank=True, verbose_name="Дедлайн")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
+
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='subtasks',
+        verbose_name="Владелец"
+    )
 
     class Meta:
         db_table = 'task_manager_subtask'  # Имя таблицы в базе данных

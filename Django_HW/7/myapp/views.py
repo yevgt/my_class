@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from rest_framework import viewsets, generics, status, filters
+from rest_framework import viewsets, generics, status, filters, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -73,7 +73,8 @@ class TaskListCreateView(generics.ListCreateAPIView):
     # queryset = Task.objects.all()
     # serializer_class = TaskSerializer
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
@@ -82,7 +83,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
     ordering = ['-created_at']  # сортировка по умолчанию
 
     def get_queryset(self):
-        queryset = Task.objects.all()
+        queryset = Task.objects.filter(owner=self.request.user)
         day_param = self.request.query_params.get('day', None)
 
         # Мапа дней недели
@@ -108,6 +109,13 @@ class TaskListCreateView(generics.ListCreateAPIView):
         if self.request.method == 'POST':
             return TaskCreateSerializer
         return TaskSerializer
+
+    # при создании объекта будет назначаться текущий пользователь
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+
 
 # Получение задачи по ID
 class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -242,7 +250,9 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
     # serializer_class = SubTaskSerializer
     pagination_class = SubTaskPagination
 
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
+    # только владельцы могли изменять и удалять свои задачи
+    permission_classes = [IsOwnerOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
@@ -254,6 +264,12 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
         if self.request.method == 'POST':
             return SubTaskCreateSerializer
         return SubTaskSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+    def get_queryset(self):
+        return SubTask.objects.filter(owner=self.request.user)
 
 # Получение, обновление и удаление подзадачи
 class SubTaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
@@ -289,3 +305,23 @@ class CategoryViewSet(viewsets.ModelViewSet):
             .values('id', 'name', 'task_count')
         )
         return Response(data)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+# Для получения всех задач текущего пользователя
+class MyTaskListView(generics.ListAPIView):
+    serializer_class = TaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Task.objects.filter(owner=self.request.user)
+
+
+# Для получения всех подзадач текущего пользователя
+class MySubTaskListView(generics.ListAPIView):
+    serializer_class = SubTaskSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return SubTask.objects.filter(owner=self.request.user)

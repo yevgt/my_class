@@ -142,3 +142,490 @@
 [2025-07-25 02:22:42,738] DEBUG django.db.backends (0.002) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
 [2025-07-25 02:24:12,850] DEBUG django.db.backends (0.002) SELECT COUNT(*) AS "__count" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted"; args=(); alias=default
 [2025-07-25 02:24:12,853] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" LIMIT 5; args=(); alias=default
+[2025-07-25 13:06:21,175] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:06:21,181] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:06:31,871] DEBUG django.db.backends (0.001) SELECT COUNT(*) AS "__count" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted"; args=(); alias=default
+[2025-07-25 13:06:31,873] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE NOT "task_manager_category"."is_deleted" LIMIT 5; args=(); alias=default
+[2025-07-25 13:10:12,346] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:10:12,352] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:10:47,707] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:10:47,711] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:23:31,916] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-25 13:23:33,136] DEBUG django.db.backends (0.000) SELECT 1 AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f' LIMIT 1; args=(1, 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-25 13:23:33,137] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 13:23:33,139] DEBUG django.db.backends (0.002) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('ud6owtpd9ghfifha19ovzo4tq8956x4f', 'e30:1ufGWT:SUGxD1JMoQR9dWDed067Z0LwzBuoF3-ZLqzzFgTgBC4', '2025-08-08 11:23:33.137091'); args=('ud6owtpd9ghfifha19ovzo4tq8956x4f', 'e30:1ufGWT:SUGxD1JMoQR9dWDed067Z0LwzBuoF3-ZLqzzFgTgBC4', '2025-08-08 11:23:33.137091'); alias=default
+[2025-07-25 13:23:33,145] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 13:23:33,152] DEBUG django.db.backends (0.006) UPDATE "auth_user" SET "last_login" = '2025-07-25 11:23:33.145843' WHERE "auth_user"."id" = 1; args=('2025-07-25 11:23:33.145843', 1); alias=default
+[2025-07-25 13:23:33,153] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 13:23:33,154] DEBUG django.db.backends (0.001) UPDATE "django_session" SET "session_data" = '.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufGWT:9r9Zcpc9fLpN_c418jbMfRJVhechT3Lb8vQ_Q5RWFeM', "expire_date" = '2025-08-08 11:23:33.152941' WHERE "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f'; args=('.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufGWT:9r9Zcpc9fLpN_c418jbMfRJVhechT3Lb8vQ_Q5RWFeM', '2025-08-08 11:23:33.152941', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-25 13:23:33,158] DEBUG django.db.backends (0.004) COMMIT; args=None; alias=default
+[2025-07-25 13:23:33,164] DEBUG django.db.backends (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-07-25 11:23:33.161877' AND "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f') LIMIT 21; args=('2025-07-25 11:23:33.161877', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-25 13:23:33,166] DEBUG django.db.backends (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-25 13:23:33,183] DEBUG django.db.backends (0.000) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ("django_admin_log"."user_id" = "auth_user"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(1,); alias=default
+[2025-07-25 13:23:39,965] DEBUG django.db.backends (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-07-25 11:23:39.962709' AND "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f') LIMIT 21; args=('2025-07-25 11:23:39.962709', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-25 13:23:39,966] DEBUG django.db.backends (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-25 13:23:39,971] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user') LIMIT 21; args=('auth', 'user'); alias=default
+[2025-07-25 13:23:40,054] DEBUG django.db.backends (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-07-25 11:23:40.046984' AND "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f') LIMIT 21; args=('2025-07-25 11:23:40.046984', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-25 13:23:40,060] DEBUG django.db.backends (0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-25 13:28:02,991] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:28:02,994] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:28:23,108] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:28:23,114] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:33:25,582] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:33:25,587] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:36:21,375] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:36:21,386] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:48:35,705] DEBUG django.db.backends (0.005) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:48:35,718] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:49:11,452] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:49:11,457] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:50:06,625] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:50:06,629] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:55:09,771] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:55:09,779] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 13:57:12,486] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 13:57:12,494] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:21:00,391] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:21:00,395] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:21:07,224] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:21:07,226] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:21:19,210] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:21:19,213] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:21:45,920] DEBUG django.db.backends (0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:21:45,934] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:47:09,044] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:47:09,050] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:50:37,236] DEBUG django.db.backends (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:50:37,238] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:53:42,420] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:53:42,429] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:53:50,602] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:53:50,610] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:53:50,613] DEBUG django.db.backends (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:53:50,614] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:53:50,645] DEBUG django.db.backends (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:53:50,646] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,647] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,647] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,667] DEBUG django.db.backends.schema CREATE TABLE "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" datetime NOT NULL, "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+[2025-07-25 16:53:50,679] DEBUG django.db.backends (0.011) CREATE TABLE "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" datetime NOT NULL, "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+[2025-07-25 16:53:50,683] DEBUG django.db.backends (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0001_initial', '2025-07-25 14:53:50.680097') RETURNING "django_migrations"."id"; args=('authtoken', '0001_initial', '2025-07-25 14:53:50.680097'); alias=default
+[2025-07-25 16:53:50,684] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:50,693] DEBUG django.db.backends (0.009) COMMIT; args=None; alias=default
+[2025-07-25 16:53:50,694] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:50,695] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,695] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,696] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,792] DEBUG django.db.backends (0.003) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0002_auto_20160226_1747', '2025-07-25 14:53:50.788909') RETURNING "django_migrations"."id"; args=('authtoken', '0002_auto_20160226_1747', '2025-07-25 14:53:50.788909'); alias=default
+[2025-07-25 16:53:50,793] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:50,798] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:50,798] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:50,799] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,799] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,799] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,803] DEBUG django.db.backends (0.002) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0003_tokenproxy', '2025-07-25 14:53:50.801446') RETURNING "django_migrations"."id"; args=('authtoken', '0003_tokenproxy', '2025-07-25 14:53:50.801446'); alias=default
+[2025-07-25 16:53:50,803] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:50,808] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:50,809] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:50,809] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,810] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,810] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,826] DEBUG django.db.backends (0.004) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0004_alter_tokenproxy_options', '2025-07-25 14:53:50.821294') RETURNING "django_migrations"."id"; args=('authtoken', '0004_alter_tokenproxy_options', '2025-07-25 14:53:50.821294'); alias=default
+[2025-07-25 16:53:50,827] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:50,833] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:50,833] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:50,835] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,835] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,835] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,871] DEBUG django.db.backends.schema ALTER TABLE "task_manager_subtask" ADD COLUMN "owner_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+[2025-07-25 16:53:50,875] DEBUG django.db.backends (0.004) ALTER TABLE "task_manager_subtask" ADD COLUMN "owner_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+[2025-07-25 16:53:50,895] DEBUG django.db.backends.schema ALTER TABLE "task_manager_task" ADD COLUMN "owner_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+[2025-07-25 16:53:50,896] DEBUG django.db.backends (0.001) ALTER TABLE "task_manager_task" ADD COLUMN "owner_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+[2025-07-25 16:53:50,897] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:50,902] DEBUG django.db.backends.schema CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); (params None)
+[2025-07-25 16:53:50,903] DEBUG django.db.backends (0.000) CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); args=None; alias=default
+[2025-07-25 16:53:50,903] DEBUG django.db.backends.schema CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); (params None)
+[2025-07-25 16:53:50,904] DEBUG django.db.backends (0.000) CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); args=None; alias=default
+[2025-07-25 16:53:50,912] DEBUG django.db.backends (0.007) COMMIT; args=None; alias=default
+[2025-07-25 16:53:50,913] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:50,917] DEBUG django.db.backends (0.003) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('myapp', '0005_subtask_owner_task_owner', '2025-07-25 14:53:50.913830') RETURNING "django_migrations"."id"; args=('myapp', '0005_subtask_owner_task_owner', '2025-07-25 14:53:50.913830'); alias=default
+[2025-07-25 16:53:50,924] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:50,925] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:50,925] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:50,930] DEBUG django.db.backends.schema CREATE TABLE "token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL); (params None)
+[2025-07-25 16:53:50,934] DEBUG django.db.backends (0.004) CREATE TABLE "token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL); args=None; alias=default
+[2025-07-25 16:53:50,972] DEBUG django.db.backends.schema CREATE TABLE "token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "jti" char(32) NOT NULL UNIQUE, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+[2025-07-25 16:53:50,974] DEBUG django.db.backends (0.001) CREATE TABLE "token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "jti" char(32) NOT NULL UNIQUE, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+[2025-07-25 16:53:51,004] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL, "token_id" integer NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+[2025-07-25 16:53:51,006] DEBUG django.db.backends (0.000) CREATE TABLE "new__token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL, "token_id" integer NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+[2025-07-25 16:53:51,006] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_blacklistedtoken" ("id", "blacklisted_at", "token_id") SELECT "id", "blacklisted_at", NULL FROM "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,006] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_blacklistedtoken" ("id", "blacklisted_at", "token_id") SELECT "id", "blacklisted_at", NULL FROM "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,007] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,007] DEBUG django.db.backends (0.000) DROP TABLE "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,007] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,010] DEBUG django.db.backends (0.003) ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,011] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,011] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,012] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0001_initial', '2025-07-25 14:53:51.012076') RETURNING "django_migrations"."id"; args=('token_blacklist', '0001_initial', '2025-07-25 14:53:51.012076'); alias=default
+[2025-07-25 16:53:51,013] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,018] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,018] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,019] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,020] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,020] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,042] DEBUG django.db.backends.schema ALTER TABLE "token_blacklist_outstandingtoken" ADD COLUMN "jti_hex" varchar(255) NULL; (params None)
+[2025-07-25 16:53:51,046] DEBUG django.db.backends (0.003) ALTER TABLE "token_blacklist_outstandingtoken" ADD COLUMN "jti_hex" varchar(255) NULL; args=None; alias=default
+[2025-07-25 16:53:51,047] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0002_outstandingtoken_jti_hex', '2025-07-25 14:53:51.046881') RETURNING "django_migrations"."id"; args=('token_blacklist', '0002_outstandingtoken_jti_hex', '2025-07-25 14:53:51.046881'); alias=default
+[2025-07-25 16:53:51,048] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,053] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,053] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,054] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,054] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,054] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,081] DEBUG django.db.backends (0.000) SELECT "token_blacklist_outstandingtoken"."id", "token_blacklist_outstandingtoken"."jti", "token_blacklist_outstandingtoken"."token", "token_blacklist_outstandingtoken"."created_at", "token_blacklist_outstandingtoken"."expires_at", "token_blacklist_outstandingtoken"."user_id", "token_blacklist_outstandingtoken"."jti_hex" FROM "token_blacklist_outstandingtoken" ORDER BY "token_blacklist_outstandingtoken"."user_id" ASC; args=(); alias=default
+[2025-07-25 16:53:51,083] DEBUG django.db.backends (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0003_auto_20171017_2007', '2025-07-25 14:53:51.081690') RETURNING "django_migrations"."id"; args=('token_blacklist', '0003_auto_20171017_2007', '2025-07-25 14:53:51.081690'); alias=default
+[2025-07-25 16:53:51,084] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,089] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,089] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,090] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,090] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,090] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,115] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "jti" char(32) NOT NULL UNIQUE, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti_hex" varchar(255) NOT NULL UNIQUE); (params None)
+[2025-07-25 16:53:51,120] DEBUG django.db.backends (0.005) CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "jti" char(32) NOT NULL UNIQUE, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti_hex" varchar(255) NOT NULL UNIQUE); args=None; alias=default
+[2025-07-25 16:53:51,121] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "jti", "token", "created_at", "expires_at", "user_id", "jti_hex") SELECT "id", "jti", "token", "created_at", "expires_at", "user_id", coalesce("jti_hex", NULL) FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,122] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "jti", "token", "created_at", "expires_at", "user_id", "jti_hex") SELECT "id", "jti", "token", "created_at", "expires_at", "user_id", coalesce("jti_hex", NULL) FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,122] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,123] DEBUG django.db.backends (0.001) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,123] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,127] DEBUG django.db.backends (0.003) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,128] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,128] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,130] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0004_auto_20171017_2013', '2025-07-25 14:53:51.129497') RETURNING "django_migrations"."id"; args=('token_blacklist', '0004_auto_20171017_2013', '2025-07-25 14:53:51.129497'); alias=default
+[2025-07-25 16:53:51,131] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,139] DEBUG django.db.backends (0.008) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,140] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,141] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,142] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,142] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,184] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti_hex" varchar(255) NOT NULL UNIQUE); (params None)
+[2025-07-25 16:53:51,188] DEBUG django.db.backends (0.004) CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti_hex" varchar(255) NOT NULL UNIQUE); args=None; alias=default
+[2025-07-25 16:53:51,189] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "created_at", "expires_at", "user_id", "jti_hex") SELECT "id", "token", "created_at", "expires_at", "user_id", "jti_hex" FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,190] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "created_at", "expires_at", "user_id", "jti_hex") SELECT "id", "token", "created_at", "expires_at", "user_id", "jti_hex" FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,190] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,191] DEBUG django.db.backends (0.001) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,192] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,195] DEBUG django.db.backends (0.003) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,196] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,196] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,198] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0005_remove_outstandingtoken_jti', '2025-07-25 14:53:51.197429') RETURNING "django_migrations"."id"; args=('token_blacklist', '0005_remove_outstandingtoken_jti', '2025-07-25 14:53:51.197429'); alias=default
+[2025-07-25 16:53:51,199] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,205] DEBUG django.db.backends (0.006) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,206] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,207] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,208] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,208] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,245] DEBUG django.db.backends.schema ALTER TABLE "token_blacklist_outstandingtoken" RENAME COLUMN "jti_hex" TO "jti"; (params ())
+[2025-07-25 16:53:51,258] DEBUG django.db.backends (0.013) ALTER TABLE "token_blacklist_outstandingtoken" RENAME COLUMN "jti_hex" TO "jti"; args=(); alias=default
+[2025-07-25 16:53:51,261] DEBUG django.db.backends (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0006_auto_20171017_2113', '2025-07-25 14:53:51.259232') RETURNING "django_migrations"."id"; args=('token_blacklist', '0006_auto_20171017_2113', '2025-07-25 14:53:51.259232'); alias=default
+[2025-07-25 16:53:51,262] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,269] DEBUG django.db.backends (0.007) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,270] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,271] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,272] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,272] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,313] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE, "created_at" datetime NULL); (params None)
+[2025-07-25 16:53:51,317] DEBUG django.db.backends (0.003) CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "expires_at" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE, "created_at" datetime NULL); args=None; alias=default
+[2025-07-25 16:53:51,317] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "expires_at", "user_id", "jti", "created_at") SELECT "id", "token", "expires_at", "user_id", "jti", "created_at" FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,318] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "expires_at", "user_id", "jti", "created_at") SELECT "id", "token", "expires_at", "user_id", "jti", "created_at" FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,318] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,319] DEBUG django.db.backends (0.000) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,319] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,322] DEBUG django.db.backends (0.003) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,322] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,323] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,362] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "jti" varchar(255) NOT NULL UNIQUE, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+[2025-07-25 16:53:51,363] DEBUG django.db.backends (0.000) CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "jti" varchar(255) NOT NULL UNIQUE, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+[2025-07-25 16:53:51,363] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "created_at", "expires_at", "jti", "user_id") SELECT "id", "token", "created_at", "expires_at", "jti", "user_id" FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,364] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("id", "token", "created_at", "expires_at", "jti", "user_id") SELECT "id", "token", "created_at", "expires_at", "jti", "user_id" FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,364] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,365] DEBUG django.db.backends (0.000) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,365] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,367] DEBUG django.db.backends (0.002) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,368] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,368] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,370] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0007_auto_20171017_2214', '2025-07-25 14:53:51.369007') RETURNING "django_migrations"."id"; args=('token_blacklist', '0007_auto_20171017_2214', '2025-07-25 14:53:51.369007'); alias=default
+[2025-07-25 16:53:51,371] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,376] DEBUG django.db.backends (0.004) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,376] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,377] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,377] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,378] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,389] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL, "token_id" integer NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+[2025-07-25 16:53:51,393] DEBUG django.db.backends (0.003) CREATE TABLE "new__token_blacklist_blacklistedtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "blacklisted_at" datetime NOT NULL, "token_id" integer NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+[2025-07-25 16:53:51,394] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_blacklistedtoken" ("blacklisted_at", "token_id", "id") SELECT "blacklisted_at", "token_id", "id" FROM "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,394] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_blacklistedtoken" ("blacklisted_at", "token_id", "id") SELECT "blacklisted_at", "token_id", "id" FROM "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,394] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,395] DEBUG django.db.backends (0.000) DROP TABLE "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,395] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,397] DEBUG django.db.backends (0.002) ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,426] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE); (params None)
+[2025-07-25 16:53:51,427] DEBUG django.db.backends (0.000) CREATE TABLE "new__token_blacklist_outstandingtoken" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE); args=None; alias=default
+[2025-07-25 16:53:51,427] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("token", "created_at", "expires_at", "user_id", "jti", "id") SELECT "token", "created_at", "expires_at", "user_id", "jti", "id" FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,428] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("token", "created_at", "expires_at", "user_id", "jti", "id") SELECT "token", "created_at", "expires_at", "user_id", "jti", "id" FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,428] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,429] DEBUG django.db.backends (0.001) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,429] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,432] DEBUG django.db.backends (0.003) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,433] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,433] DEBUG django.db.backends (0.000) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,435] DEBUG django.db.backends (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0008_migrate_to_bigautofield', '2025-07-25 14:53:51.434213') RETURNING "django_migrations"."id"; args=('token_blacklist', '0008_migrate_to_bigautofield', '2025-07-25 14:53:51.434213'); alias=default
+[2025-07-25 16:53:51,435] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,440] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,440] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,441] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,441] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,442] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,456] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_blacklistedtoken" ("blacklisted_at" datetime NOT NULL, "token_id" bigint NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED, "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT); (params None)
+[2025-07-25 16:53:51,460] DEBUG django.db.backends (0.003) CREATE TABLE "new__token_blacklist_blacklistedtoken" ("blacklisted_at" datetime NOT NULL, "token_id" bigint NOT NULL UNIQUE REFERENCES "token_blacklist_outstandingtoken" ("id") DEFERRABLE INITIALLY DEFERRED, "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT); args=None; alias=default
+[2025-07-25 16:53:51,460] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_blacklistedtoken" ("blacklisted_at", "token_id", "id") SELECT "blacklisted_at", "token_id", "id" FROM "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,460] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_blacklistedtoken" ("blacklisted_at", "token_id", "id") SELECT "blacklisted_at", "token_id", "id" FROM "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,461] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,461] DEBUG django.db.backends (0.000) DROP TABLE "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,461] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; (params ())
+[2025-07-25 16:53:51,464] DEBUG django.db.backends (0.002) ALTER TABLE "new__token_blacklist_blacklistedtoken" RENAME TO "token_blacklist_blacklistedtoken"; args=(); alias=default
+[2025-07-25 16:53:51,505] DEBUG django.db.backends.schema CREATE TABLE "new__token_blacklist_outstandingtoken" ("token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE, "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT); (params None)
+[2025-07-25 16:53:51,506] DEBUG django.db.backends (0.001) CREATE TABLE "new__token_blacklist_outstandingtoken" ("token" text NOT NULL, "created_at" datetime NULL, "expires_at" datetime NOT NULL, "user_id" integer NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "jti" varchar(255) NOT NULL UNIQUE, "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT); args=None; alias=default
+[2025-07-25 16:53:51,507] DEBUG django.db.backends.schema INSERT INTO "new__token_blacklist_outstandingtoken" ("token", "created_at", "expires_at", "user_id", "jti", "id") SELECT "token", "created_at", "expires_at", "user_id", "jti", "id" FROM "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,507] DEBUG django.db.backends (0.000) INSERT INTO "new__token_blacklist_outstandingtoken" ("token", "created_at", "expires_at", "user_id", "jti", "id") SELECT "token", "created_at", "expires_at", "user_id", "jti", "id" FROM "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,508] DEBUG django.db.backends.schema DROP TABLE "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,509] DEBUG django.db.backends (0.001) DROP TABLE "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,509] DEBUG django.db.backends.schema ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; (params ())
+[2025-07-25 16:53:51,514] DEBUG django.db.backends (0.004) ALTER TABLE "new__token_blacklist_outstandingtoken" RENAME TO "token_blacklist_outstandingtoken"; args=(); alias=default
+[2025-07-25 16:53:51,515] DEBUG django.db.backends.schema CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); (params ())
+[2025-07-25 16:53:51,516] DEBUG django.db.backends (0.001) CREATE INDEX "token_blacklist_outstandingtoken_user_id_83bc629a" ON "token_blacklist_outstandingtoken" ("user_id"); args=(); alias=default
+[2025-07-25 16:53:51,518] DEBUG django.db.backends (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0010_fix_migrate_to_bigautofield', '2025-07-25 14:53:51.516999') RETURNING "django_migrations"."id"; args=('token_blacklist', '0010_fix_migrate_to_bigautofield', '2025-07-25 14:53:51.516999'); alias=default
+[2025-07-25 16:53:51,519] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,527] DEBUG django.db.backends (0.008) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,527] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,528] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,529] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,529] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,537] DEBUG django.db.backends (0.005) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0011_linearizes_history', '2025-07-25 14:53:51.530401') RETURNING "django_migrations"."id"; args=('token_blacklist', '0011_linearizes_history', '2025-07-25 14:53:51.530401'); alias=default
+[2025-07-25 16:53:51,539] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,545] DEBUG django.db.backends (0.006) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,546] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,547] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,548] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,548] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,599] DEBUG django.db.backends (0.003) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0012_alter_outstandingtoken_user', '2025-07-25 14:53:51.596091') RETURNING "django_migrations"."id"; args=('token_blacklist', '0012_alter_outstandingtoken_user', '2025-07-25 14:53:51.596091'); alias=default
+[2025-07-25 16:53:51,600] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,605] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,605] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,606] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+[2025-07-25 16:53:51,607] DEBUG django.db.backends (0.000) PRAGMA foreign_keys; args=None; alias=default
+[2025-07-25 16:53:51,607] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,645] DEBUG django.db.backends (0.003) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('token_blacklist', '0013_alter_blacklistedtoken_options_and_more', '2025-07-25 14:53:51.641604') RETURNING "django_migrations"."id"; args=('token_blacklist', '0013_alter_blacklistedtoken_options_and_more', '2025-07-25 14:53:51.641604'); alias=default
+[2025-07-25 16:53:51,645] DEBUG django.db.backends (0.000) PRAGMA foreign_key_check; args=None; alias=default
+[2025-07-25 16:53:51,650] DEBUG django.db.backends (0.004) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,651] DEBUG django.db.backends (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+[2025-07-25 16:53:51,653] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-25 16:53:51,697] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+[2025-07-25 16:53:51,700] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+[2025-07-25 16:53:51,708] DEBUG django.db.backends (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(1,); alias=default
+[2025-07-25 16:53:51,710] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+[2025-07-25 16:53:51,713] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+[2025-07-25 16:53:51,716] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('user', 'permission', 'group')); args=('auth', 'user', 'permission', 'group'); alias=default
+[2025-07-25 16:53:51,720] DEBUG django.db.backends (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(2, 3, 4); alias=default
+[2025-07-25 16:53:51,722] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+[2025-07-25 16:53:51,725] DEBUG django.db.backends (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+[2025-07-25 16:53:51,728] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+[2025-07-25 16:53:51,731] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(5,); alias=default
+[2025-07-25 16:53:51,733] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+[2025-07-25 16:53:51,736] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+[2025-07-25 16:53:51,738] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+[2025-07-25 16:53:51,741] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(6,); alias=default
+[2025-07-25 16:53:51,742] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+[2025-07-25 16:53:51,744] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'authtoken'; args=('authtoken',); alias=default
+[2025-07-25 16:53:51,744] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,749] DEBUG django.db.backends (0.004) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('authtoken', 'token'), ('authtoken', 'tokenproxy') RETURNING "django_content_type"."id"; args=('authtoken', 'token', 'authtoken', 'tokenproxy'); alias=default
+[2025-07-25 16:53:51,756] DEBUG django.db.backends (0.006) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,757] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'authtoken' AND "django_content_type"."model" IN ('token', 'tokenproxy')); args=('authtoken', 'token', 'tokenproxy'); alias=default
+[2025-07-25 16:53:51,760] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10, 11) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(10, 11); alias=default
+[2025-07-25 16:53:51,761] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,763] DEBUG django.db.backends (0.002) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add Token', 10, 'add_token'), ('Can change Token', 10, 'change_token'), ('Can delete Token', 10, 'delete_token'), ('Can view Token', 10, 'view_token'), ('Can add Token', 11, 'add_tokenproxy'), ('Can change Token', 11, 'change_tokenproxy'), ('Can delete Token', 11, 'delete_tokenproxy'), ('Can view Token', 11, 'view_tokenproxy') RETURNING "auth_permission"."id"; args=('Can add Token', 10, 'add_token', 'Can change Token', 10, 'change_token', 'Can delete Token', 10, 'delete_token', 'Can view Token', 10, 'view_token', 'Can add Token', 11, 'add_tokenproxy', 'Can change Token', 11, 'change_tokenproxy', 'Can delete Token', 11, 'delete_tokenproxy', 'Can view Token', 11, 'view_tokenproxy'); alias=default
+[2025-07-25 16:53:51,769] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,771] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'authtoken'; args=('authtoken',); alias=default
+[2025-07-25 16:53:51,772] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'rest_framework_simplejwt'; args=('rest_framework_simplejwt',); alias=default
+[2025-07-25 16:53:51,775] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'rest_framework_simplejwt'; args=('rest_framework_simplejwt',); alias=default
+[2025-07-25 16:53:51,776] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'token_blacklist'; args=('token_blacklist',); alias=default
+[2025-07-25 16:53:51,776] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,779] DEBUG django.db.backends (0.003) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('token_blacklist', 'blacklistedtoken'), ('token_blacklist', 'outstandingtoken') RETURNING "django_content_type"."id"; args=('token_blacklist', 'blacklistedtoken', 'token_blacklist', 'outstandingtoken'); alias=default
+[2025-07-25 16:53:51,785] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,786] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'token_blacklist' AND "django_content_type"."model" IN ('blacklistedtoken', 'outstandingtoken')); args=('token_blacklist', 'blacklistedtoken', 'outstandingtoken'); alias=default
+[2025-07-25 16:53:51,790] DEBUG django.db.backends (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (12, 13) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(12, 13); alias=default
+[2025-07-25 16:53:51,791] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-25 16:53:51,794] DEBUG django.db.backends (0.002) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add Blacklisted Token', 12, 'add_blacklistedtoken'), ('Can change Blacklisted Token', 12, 'change_blacklistedtoken'), ('Can delete Blacklisted Token', 12, 'delete_blacklistedtoken'), ('Can view Blacklisted Token', 12, 'view_blacklistedtoken'), ('Can add Outstanding Token', 13, 'add_outstandingtoken'), ('Can change Outstanding Token', 13, 'change_outstandingtoken'), ('Can delete Outstanding Token', 13, 'delete_outstandingtoken'), ('Can view Outstanding Token', 13, 'view_outstandingtoken') RETURNING "auth_permission"."id"; args=('Can add Blacklisted Token', 12, 'add_blacklistedtoken', 'Can change Blacklisted Token', 12, 'change_blacklistedtoken', 'Can delete Blacklisted Token', 12, 'delete_blacklistedtoken', 'Can view Blacklisted Token', 12, 'view_blacklistedtoken', 'Can add Outstanding Token', 13, 'add_outstandingtoken', 'Can change Outstanding Token', 13, 'change_outstandingtoken', 'Can delete Outstanding Token', 13, 'delete_outstandingtoken', 'Can view Outstanding Token', 13, 'view_outstandingtoken'); alias=default
+[2025-07-25 16:53:51,799] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-25 16:53:51,800] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'token_blacklist'; args=('token_blacklist',); alias=default
+[2025-07-25 16:53:51,802] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+[2025-07-25 16:53:51,803] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'myapp' AND "django_content_type"."model" IN ('category', 'task', 'subtask')); args=('myapp', 'category', 'task', 'subtask'); alias=default
+[2025-07-25 16:53:51,805] DEBUG django.db.backends (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 9, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(8, 9, 7); alias=default
+[2025-07-25 16:53:51,807] DEBUG django.db.backends (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+[2025-07-25 16:54:25,034] DEBUG django.db.backends (0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-25 16:54:25,045] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 00:27:13,576] DEBUG django.db.backends (0.006) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-26 00:27:14,801] DEBUG django.db.backends (0.003) INSERT INTO "token_blacklist_outstandingtoken" ("user_id", "jti", "token", "created_at", "expires_at") VALUES (1, 'f8125104279e464b9c246f27cbc566c0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzU2ODgzNCwiaWF0IjoxNzUzNDgyNDM0LCJqdGkiOiJmODEyNTEwNDI3OWU0NjRiOWMyNDZmMjdjYmM1NjZjMCIsInVzZXJfaWQiOiIxIn0.EJHaEtIPN6vdu3mSN-qJMAQqWI1q4XFfTFN-_k3cisQ', '2025-07-25 22:27:14.761866', '2025-07-26 22:27:14') RETURNING "token_blacklist_outstandingtoken"."id"; args=(1, 'f8125104279e464b9c246f27cbc566c0', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzU2ODgzNCwiaWF0IjoxNzUzNDgyNDM0LCJqdGkiOiJmODEyNTEwNDI3OWU0NjRiOWMyNDZmMjdjYmM1NjZjMCIsInVzZXJfaWQiOiIxIn0.EJHaEtIPN6vdu3mSN-qJMAQqWI1q4XFfTFN-_k3cisQ', '2025-07-25 22:27:14.761866', '2025-07-26 22:27:14'); alias=default
+[2025-07-26 00:28:36,243] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-26 00:28:37,282] DEBUG django.db.backends (0.002) INSERT INTO "token_blacklist_outstandingtoken" ("user_id", "jti", "token", "created_at", "expires_at") VALUES (1, 'f1bba104aa354357836e16a381c593e5', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzU2ODkxNywiaWF0IjoxNzUzNDgyNTE3LCJqdGkiOiJmMWJiYTEwNGFhMzU0MzU3ODM2ZTE2YTM4MWM1OTNlNSIsInVzZXJfaWQiOiIxIn0.ypor1I_KDFBaRtlHtZSUNqqcwTHaTsKrnoUatWVN0cY', '2025-07-25 22:28:37.279606', '2025-07-26 22:28:37') RETURNING "token_blacklist_outstandingtoken"."id"; args=(1, 'f1bba104aa354357836e16a381c593e5', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzU2ODkxNywiaWF0IjoxNzUzNDgyNTE3LCJqdGkiOiJmMWJiYTEwNGFhMzU0MzU3ODM2ZTE2YTM4MWM1OTNlNSIsInVzZXJfaWQiOiIxIn0.ypor1I_KDFBaRtlHtZSUNqqcwTHaTsKrnoUatWVN0cY', '2025-07-25 22:28:37.279606', '2025-07-26 22:28:37'); alias=default
+[2025-07-26 00:29:52,798] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-26 00:29:53,745] DEBUG django.db.backends (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-07-25 22:29:53.743757' AND "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f') LIMIT 21; args=('2025-07-25 22:29:53.743757', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-26 00:29:53,760] DEBUG django.db.backends (0.006) UPDATE "auth_user" SET "last_login" = '2025-07-25 22:29:53.753357' WHERE "auth_user"."id" = 1; args=('2025-07-25 22:29:53.753357', 1); alias=default
+[2025-07-26 00:29:53,761] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-26 00:29:53,763] DEBUG django.db.backends (0.001) UPDATE "django_session" SET "session_data" = '.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufQvJ:vcvrwzYkGrCpTXtvPLdyXUAxWym0sr_1ZT3_Qn0ndi8', "expire_date" = '2025-08-08 22:29:53.761496' WHERE "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f'; args=('.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufQvJ:vcvrwzYkGrCpTXtvPLdyXUAxWym0sr_1ZT3_Qn0ndi8', '2025-08-08 22:29:53.761496', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-26 00:29:53,768] DEBUG django.db.backends (0.005) COMMIT; args=None; alias=default
+[2025-07-26 00:32:16,377] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+[2025-07-26 00:32:17,363] DEBUG django.db.backends (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-07-25 22:32:17.362756' AND "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f') LIMIT 21; args=('2025-07-25 22:32:17.362756', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-26 00:32:17,371] DEBUG django.db.backends (0.007) UPDATE "auth_user" SET "last_login" = '2025-07-25 22:32:17.363989' WHERE "auth_user"."id" = 1; args=('2025-07-25 22:32:17.363989', 1); alias=default
+[2025-07-26 00:32:17,372] DEBUG django.db.backends (0.000) BEGIN; args=None; alias=default
+[2025-07-26 00:32:17,374] DEBUG django.db.backends (0.001) UPDATE "django_session" SET "session_data" = '.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufQxd:WE85h_gtA8wO2BOjxGFFDgCJIATh99ZiHZMwRG4KzkY', "expire_date" = '2025-08-08 22:32:17.372419' WHERE "django_session"."session_key" = 'ud6owtpd9ghfifha19ovzo4tq8956x4f'; args=('.eJxVjEEOwiAQRe_C2hCgdphx6b5nIDCAVA0kpV0Z765NutDtf-_9l3B-W4vbelrcHMVFaHH63YLnR6o7iHdfb01yq-syB7kr8qBdTi2m5_Vw_w6K7-VbQwKgqAb2UWVrNQAajUBnMyCaQAisB9IYNJvs48iskJFHa8mQykm8P7riNwI:1ufQxd:WE85h_gtA8wO2BOjxGFFDgCJIATh99ZiHZMwRG4KzkY', '2025-08-08 22:32:17.372419', 'ud6owtpd9ghfifha19ovzo4tq8956x4f'); alias=default
+[2025-07-26 00:32:17,380] DEBUG django.db.backends (0.006) COMMIT; args=None; alias=default
+[2025-07-26 00:34:58,830] DEBUG django.db.backends (0.001) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."created_at", "task_manager_task"."owner_id" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 21; args=(); alias=default
+[2025-07-26 00:34:58,831] DEBUG django.db.backends (0.000) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."created_at", "task_manager_task"."owner_id" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 21; args=(); alias=default
+[2025-07-26 00:34:58,832] DEBUG django.db.backends (0.000) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."created_at", "task_manager_task"."owner_id" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 21; args=(); alias=default
+[2025-07-26 00:34:58,832] DEBUG django.db.backends (0.000) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."created_at", "task_manager_task"."owner_id" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 21; args=(); alias=default
+[2025-07-26 00:35:37,342] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-26 00:35:37,348] DEBUG django.db.backends (0.001) SELECT COUNT(*) AS "__count" FROM "task_manager_task" WHERE "task_manager_task"."owner_id" = 1; args=(1,); alias=default
+[2025-07-26 00:35:59,803] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-26 00:35:59,807] DEBUG django.db.backends (0.002) SELECT COUNT(*) AS "__count" FROM "task_manager_subtask" WHERE "task_manager_subtask"."owner_id" = 1; args=(1,); alias=default
+[2025-07-26 00:36:28,667] DEBUG django.db.backends (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-26 00:41:43,690] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 00:41:43,693] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 00:47:12,838] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 00:47:12,841] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 00:53:12,259] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 00:53:12,263] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 00:53:27,064] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 00:53:27,068] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 00:56:50,496] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 00:56:50,499] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 01:03:08,077] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 01:03:08,081] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 01:03:25,134] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 01:03:25,138] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 01:20:06,348] DEBUG django.db.backends (0.003) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+[2025-07-26 01:20:06,628] DEBUG django.db.backends (0.001) SELECT "task_manager_category"."id", "task_manager_category"."name", "task_manager_category"."description", "task_manager_category"."created_at", "task_manager_category"."updated_at", "task_manager_category"."is_deleted", "task_manager_category"."deleted_at" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."name" = '1') LIMIT 21; args=('1',); alias=default
+[2025-07-26 02:07:02,757] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 02:07:02,761] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 02:07:55,891] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 02:07:55,899] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 02:21:56,161] DEBUG django.db.backends (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 02:21:56,171] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 02:29:50,027] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 02:29:50,031] DEBUG django.db.backends (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[2025-07-26 02:30:29,911] DEBUG django.db.backends (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+[2025-07-26 02:30:29,916] DEBUG django.db.backends (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

@@ -1,11 +1,14 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from datetime import date
+from django.contrib.auth import get_user_model
 from .models import (
     Task,
     SubTask,
     Category,
 )
+
+User = get_user_model()
 
 # Сериализатор для создания/обновления категории с проверкой уникальности
 class CategoryCreateSerializer(serializers.ModelSerializer):
@@ -42,14 +45,17 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['id',
-                  'title',
-                  'description',
-                  'status',
-                  'deadline',
-                  'created_at'
+        fields = [
+              'id',
+              'title',
+              'categories',
+              'description',
+              'status',
+              'deadline',
+              'created_at',
+              'owner',
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['owner', 'created_at']
 
         def update(self, instance, validated_data):
             # Если deadline не передан — сохранить текущее значение из instance
@@ -60,9 +66,24 @@ class TaskSerializer(serializers.ModelSerializer):
 
 # Сериализатор для создания/обновления задачи с валидацией
 class TaskCreateSerializer(serializers.ModelSerializer):
+    # выводим имя категории
+    categories = serializers.SlugRelatedField(
+        many=True,
+        slug_field='name',
+        queryset=Category.objects.all()
+    )
+
     class Meta:
         model = Task
-        fields = ['id', 'title', 'description', 'deadline', 'status']
+        fields = [
+            'id',
+            'title',
+            'description',
+            'categories',
+            'deadline',
+            'status',
+            'owner',
+        ]
 
     def validate_deadline(self, value):
         # Проверка, что deadline не раньше сегодняшнего дня
@@ -104,9 +125,10 @@ class SubTaskSerializer(serializers.ModelSerializer):
                   'deadline',
                   'task',
                   'task_title',
-                  'created_at'
+                  'created_at',
+                  'owner',
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['owner', 'created_at']
 
 # Сериализатор для создания/обновления подзадачи
 class SubTaskCreateSerializer(serializers.ModelSerializer):

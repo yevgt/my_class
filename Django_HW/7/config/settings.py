@@ -110,7 +110,9 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5,  # Количество элементов 5 на странице по умолчанию
     # 'DEFAULT_PAGINATION_CLASS': 'myapp.pagination.CustomCursorPagination',
     # 'PAGE_SIZE': 6,  # по заданию — 6 подзадач на страницу
-
+    'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAuthenticated',
+        ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
@@ -127,6 +129,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'drf_yasg',
     'django_filters',
     'myapp',
 ]

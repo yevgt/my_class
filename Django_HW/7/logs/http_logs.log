@@ -1,3 +1,751 @@
 [2025-07-25 01:21:14,446] WARNING django.request Unauthorized: /api/token/
 [2025-07-25 01:23:33,059] WARNING django.request Unauthorized: /api/token/refresh/
 [2025-07-25 02:23:15,433] WARNING django.request Not Found: /api/categories/
+[2025-07-25 16:54:33,273] WARNING django.request Unauthorized: /
+[2025-07-25 16:54:33,896] WARNING django.request Unauthorized: /
+[2025-07-25 16:56:09,206] WARNING django.request Unauthorized: /tasks/
+[2025-07-26 00:26:55,194] WARNING django.request Not Found: /tasks/api/token/
+[2025-07-26 00:29:33,550] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-26 00:29:41,054] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-26 00:29:43,388] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-26 00:29:53,776] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-26 00:31:06,672] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-26 00:31:11,845] WARNING django.request Unauthorized: /
+[2025-07-26 00:31:16,944] WARNING django.request Unauthorized: /
+[2025-07-26 00:32:17,387] WARNING django.request Unauthorized: /
+[2025-07-26 00:32:25,503] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:34:58,855] ERROR django.request Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\generics.py", line 243, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\my_class\Django_HW\7\myapp\views.py", line 117, in get_queryset
+    return Task.objects.filter(owner=self.request.user)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000001C161EC0B90>.
+[2025-07-26 00:36:43,674] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:39:47,315] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:40:01,878] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:41:44,038] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:53:44,493] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:56:54,279] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 00:56:56,414] ERROR django.request Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\views.py", line 112, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 276, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 482, in get_paths
+    operation = self.get_operation(view, path, prefix, method, components, request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\generators.py", line 524, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 45, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 180, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 235, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 211, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ''
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 438, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'get_schema', serializer, {'field_inspectors': self.field_inspectors}
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 49, in get_schema
+    return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 228, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors, 'field_to_swagger_object', field, {'field_inspectors': self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        swagger_object_type=swagger_object_type, use_references=use_references, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 110, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 140, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\openapi.py", line 685, in setdefault
+    ret = maker()
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 109, in make_schema_definition
+    for property_name, child in serializer.fields.items():
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1081, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\serializers.py", line 1177, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'categories' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+[2025-07-26 01:09:21,237] ERROR django.request Internal Server Error: /tasks
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/tasks/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-07-26 01:19:46,316] WARNING django.request Unauthorized: /tasks/
+[2025-07-26 01:20:06,629] WARNING django.request Bad Request: /tasks/
