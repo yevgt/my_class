@@ -6,7 +6,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import PageNumberPagination, CursorPagination
-from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import (
+    IsAdminUser,
+    IsAuthenticated,
+    IsAuthenticatedOrReadOnly,
+    AllowAny,
+)
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 from django.utils import timezone
 from django.db.models import Count, Q
 from django_filters.rest_framework import DjangoFilterBackend
@@ -19,6 +26,7 @@ from .serializers import (
     SubTaskSerializer,
     SubTaskCreateSerializer,
     CategoryCreateSerializer,
+    RegistrationSerializer,
 )
 from .permissions import IsOwnerOrReadOnly
 
@@ -325,3 +333,32 @@ class MySubTaskListView(generics.ListAPIView):
 
     def get_queryset(self):
         return SubTask.objects.filter(owner=self.request.user)
+
+class RegisterView(generics.CreateAPIView):
+    serializer_class = RegistrationSerializer
+    permission_classes = [AllowAny]
+
+
+class LogoutView(APIView):
+    '''
+     - Принимать refresh токен из запроса (обычно в теле POST).
+     - Добавлять этот токен в blacklist (аннулируя его).
+     - Возвращать подтверждение выхода.
+     - При этом на клиенте нужно также удалить токены (access и refresh), например, стереть куки или очистить хранилище.
+    '''
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            ### Можно также удалять связанные OutstandingToken
+            # tokens = OutstandingToken.objects.filter(user=request.user)
+            # for t in tokens:
+            #     BlacklistedToken.objects.get_or_create(token=t)
+
+            return Response({"detail": "Successfully logged out."}, status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response({"error": "Invalid token or token is expired."}, status=status.HTTP_400_BAD_REQUEST)

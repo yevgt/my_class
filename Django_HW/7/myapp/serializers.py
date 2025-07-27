@@ -7,6 +7,8 @@ from .models import (
     SubTask,
     Category,
 )
+from django.contrib.auth.password_validation import validate_password
+from django.core.validators import RegexValidator
 
 User = get_user_model()
 
@@ -146,3 +148,44 @@ class SubTaskCreateSerializer(serializers.ModelSerializer):
                   'created_at',
         ]
         read_only_fields = ['created_at']
+
+# Сериализатор регистрации
+class RegistrationSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+    password2 = serializers.CharField(write_only=True, required=True, label="Повтор пароля")
+    username = serializers.CharField(
+        required=True,
+        validators=[RegexValidator(
+            regex=r'^[\w.@+-]+$',
+            message='Допустимы буквы, цифры и @/./+/-/_ символы.'
+        )]
+    )
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password', 'password2')
+
+    def validate(self, attrs):
+        # Пароли совпадают
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError({'password': "Пароли не совпадают."})
+
+        # Уникальность email
+        if User.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError({'email': "Пользователь с таким email уже существует."})
+
+        # Уникальность username
+        if User.objects.filter(username=attrs['username']).exists():
+            raise serializers.ValidationError({'username': "Пользователь с таким username уже существует."})
+
+        return attrs
+
+    def create(self, validated_data):
+        user = User(
+            username=validated_data['username'],
+            email=validated_data['email'],
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+        return user

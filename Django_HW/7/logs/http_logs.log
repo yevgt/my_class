@@ -749,3 +749,18 @@ Traceback (most recent call last):
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/tasks/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 [2025-07-26 01:19:46,316] WARNING django.request Unauthorized: /tasks/
 [2025-07-26 01:20:06,629] WARNING django.request Bad Request: /tasks/
+[2025-07-26 12:56:18,983] WARNING django.request Unauthorized: /
+[2025-07-26 12:56:20,221] WARNING django.request Not Found: /favicon.ico
+[2025-07-26 12:56:34,453] WARNING django.request Unauthorized: /
+[2025-07-26 13:32:42,906] WARNING django.request Method Not Allowed: /login/
+[2025-07-26 13:33:05,534] WARNING django.request Unauthorized: /login/
+[2025-07-26 13:33:38,013] WARNING django.request Method Not Allowed: /login/
+[2025-07-26 13:33:58,281] WARNING django.request Unauthorized: /login/
+[2025-07-26 13:34:17,880] WARNING django.request Unauthorized: /logout/
+[2025-07-26 13:34:30,306] WARNING django.request Method Not Allowed: /register/
+[2025-07-26 13:35:02,009] WARNING django.request Bad Request: /register/
+[2025-07-27 14:01:39,563] WARNING django.request Unauthorized: /
+[2025-07-27 14:01:44,934] WARNING django.request Not Found: /favicon.ico
+[2025-07-27 14:01:59,955] WARNING django.request Unauthorized: /
+[2025-07-27 14:02:08,419] WARNING django.request Method Not Allowed: /login/
+[2025-07-27 14:02:35,627] WARNING django.request Unauthorized: /login/

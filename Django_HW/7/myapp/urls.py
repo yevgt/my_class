@@ -6,6 +6,7 @@ from drf_yasg import openapi
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
+    TokenBlacklistView,  # для аннулирования refresh-токенов
 )
 from .views import (
     hello,
@@ -20,6 +21,8 @@ from .views import (
     CategoryViewSet,
     MyTaskListView,
     MySubTaskListView,
+    RegisterView,
+    LogoutView,
 )
 
 schema_view = get_schema_view(
@@ -41,6 +44,15 @@ urlpatterns = [
     path('hello/', hello, name='hello'),
     # path('tasks/create/', TaskCreateView.as_view(), name='task-create'), # Создать задачу
     # path('tasks/', TaskListView.as_view(), name='task-list'), # Список задач
+
+    path('register/', RegisterView.as_view(), name='register'),
+
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Получение токенов по логину/паролю
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Обновление access через refresh
+    path('token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist'),
+    # Аннулирование refresh токена, Для logout клиент должен отправлять рефреш токен на endpoint token/blacklist/ для аннулирования
+    path('logout/', LogoutView.as_view(), name='auth_logout'),
+
     path('tasks/', TaskListCreateView.as_view(), name='task-list-create'), # Список задач и создание
     path('tasks/<int:id>/', TaskDetailView.as_view(), name='task-detail'), # Получить задачу по ID
     path('tasks/stats/', TaskStatsView.as_view(), name='task-stats'),  # Статистика задач
@@ -48,9 +60,6 @@ urlpatterns = [
     # path('subtasks/<int:id>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail'),
     path('subtasks/<int:pk>/', SubTaskRetrieveUpdateDestroyView.as_view(), name='subtask-detail'), # Получение, обновление и удаление подзадачи
     path('', include(router.urls)),
-
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('my-tasks/', MyTaskListView.as_view(), name='my-task-list'),
     path('my-subtasks/', MySubTaskListView.as_view(), name='my-subtask-list'),

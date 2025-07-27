@@ -131,7 +131,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist', # Для реализации механизма выхода из аккаунта
     'drf_yasg',
     'django_filters',
     'myapp',
@@ -211,6 +211,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {'min_length': 8},
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -252,8 +253,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60), # время жизни токена
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # True — если нужно, чтобы refresh токены менялись при каждом обновлении.
+    'ROTATE_REFRESH_TOKENS': False, # True: При каждом обновлении refresh токена генерируется новый refresh токен, а старый может быть добавлен в чёрный список, если включена опция BLACKLIST_AFTER_ROTATION. Это добавляет дополнительную безопасность — сложнее использовать украденный токен.
+    'BLACKLIST_AFTER_ROTATION': True, # добавляет защиту от повторного использования старого refresh токена
 }
