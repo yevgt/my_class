@@ -53,6 +53,13 @@ LOGGING = {
         },
     },
     'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/debug.log',
+            'formatter': 'verbose',
+            'encoding': 'utf-8',
+        },
         # Консоль — для работы сервера
         'console': {
             'class': 'logging.StreamHandler',
@@ -145,6 +152,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myapp.middleware.JWTAuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -258,3 +266,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False, # True: При каждом обновлении refresh токена генерируется новый refresh токен, а старый может быть добавлен в чёрный список, если включена опция BLACKLIST_AFTER_ROTATION. Это добавляет дополнительную безопасность — сложнее использовать украденный токен.
     'BLACKLIST_AFTER_ROTATION': True, # добавляет защиту от повторного использования старого refresh токена
 }
+
+# вывод почты в консоль
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'yev.guta@gmail.com'

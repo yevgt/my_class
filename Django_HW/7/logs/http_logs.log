@@ -764,3 +764,321 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-07-27 14:01:59,955] WARNING django.request Unauthorized: /
 [2025-07-27 14:02:08,419] WARNING django.request Method Not Allowed: /login/
 [2025-07-27 14:02:35,627] WARNING django.request Unauthorized: /login/
+[2025-07-27 14:43:56,034] WARNING django.request Unauthorized: /login/
+[2025-07-27 15:16:38,399] WARNING django.request Unauthorized: /login/
+[2025-07-27 16:09:34,414] WARNING django.request Unauthorized: /
+[2025-07-27 16:13:25,814] WARNING django.request Unauthorized: /login/
+[2025-07-27 16:13:47,894] WARNING django.request Unauthorized: /register/
+[2025-07-27 16:14:27,018] WARNING django.request Method Not Allowed: /register/
+[2025-07-27 16:16:33,186] WARNING django.request Method Not Allowed: /login/
+[2025-07-27 16:25:30,723] WARNING django.request Unauthorized: /protected/
+[2025-07-27 16:27:51,015] WARNING django.request Not Found: /task
+[2025-07-27 16:28:26,629] ERROR django.request Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\generics.py", line 243, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\my_class\Django_HW\7\myapp\views.py", line 95, in get_queryset
+    queryset = Task.objects.filter(owner=self.request.user)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x0000020979FD7620>.
+[2025-07-27 16:52:15,299] ERROR django.request Internal Server Error: /subtasks/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2128, in get_prep_value
+    return int(value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\contrib\auth\models.py", line 549, in __int__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\generics.py", line 243, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\my_class\Django_HW\7\myapp\views.py", line 285, in get_queryset
+    return SubTask.objects.filter(owner=self.request.user)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 112, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2130, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000001EA7C3B1F90>.
+[2025-07-27 16:55:27,557] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-27 16:55:53,896] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-27 16:56:22,581] WARNING django.request Unauthorized: /my-tasks/
+[2025-07-27 19:05:06,544] ERROR django.request Internal Server Error: /my-tasks/
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:05:19,639] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:05:53,531] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:15:31,533] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:15:33,178] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:15:34,537] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:15:56,723] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:16:03,308] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:19:33,755] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:20:52,370] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:20:58,716] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:23:29,206] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:23:34,436] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:23:39,294] ERROR django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\ICH\PycharmProjects\Final_Project_Python\.venv\Lib\site-packages\django\middleware\clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+       ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+[2025-07-27 19:30:30,614] WARNING django.request Unauthorized: /
+[2025-07-27 19:44:39,516] WARNING django.request Unauthorized: /
+[2025-07-27 19:44:59,318] WARNING django.request Unauthorized: /
+[2025-07-27 19:45:26,941] WARNING django.request Unauthorized: /
+[2025-07-27 19:46:15,385] WARNING django.request Unauthorized: /
+[2025-07-27 19:46:25,901] WARNING django.request Unauthorized: /
+[2025-07-27 19:56:49,926] WARNING django.request Unauthorized: /

@@ -22,6 +22,8 @@ from .views import (
     MyTaskListView,
     MySubTaskListView,
     RegisterView,
+    ProtectedDataView,
+    LoginView,
     LogoutView,
 )
 
@@ -41,13 +43,15 @@ router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
 
 urlpatterns = [
-    path('hello/', hello, name='hello'),
+    # path('hello/', hello, name='hello'),
     # path('tasks/create/', TaskCreateView.as_view(), name='task-create'), # Создать задачу
     # path('tasks/', TaskListView.as_view(), name='task-list'), # Список задач
 
     path('register/', RegisterView.as_view(), name='register'),
+    path('api/login/', LoginView.as_view(), name='login'),
 
-    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Получение токенов по логину/паролю
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Получение токенов по логину/паролю
+    path('protected/', ProtectedDataView.as_view(), name='protected-data'),  # аутентификация пользователя
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Обновление access через refresh
     path('token/blacklist/', TokenBlacklistView.as_view(), name='token_blacklist'),
     # Аннулирование refresh токена, Для logout клиент должен отправлять рефреш токен на endpoint token/blacklist/ для аннулирования

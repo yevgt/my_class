@@ -1,18 +1,22 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from datetime import datetime
+from django.contrib.auth import authenticate
 from rest_framework import viewsets, generics, status, filters, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import PageNumberPagination, CursorPagination
+from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import (
     IsAdminUser,
     IsAuthenticated,
     IsAuthenticatedOrReadOnly,
     AllowAny,
 )
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
+from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 from django.utils import timezone
 from django.db.models import Count, Q
@@ -82,7 +86,8 @@ class TaskListCreateView(generics.ListCreateAPIView):
     # serializer_class = TaskSerializer
 
     # permission_classes = [IsAuthenticatedOrReadOnly]
-    permission_classes = [IsOwnerOrReadOnly]
+    # permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
@@ -91,6 +96,9 @@ class TaskListCreateView(generics.ListCreateAPIView):
     ordering = ['-created_at']  # сортировка по умолчанию
 
     def get_queryset(self):
+        if not self.request.user.is_authenticated:
+            return Task.objects.none()  # или Task.objects.filter(is_public=True), если есть такие
+
         queryset = Task.objects.filter(owner=self.request.user)
         day_param = self.request.query_params.get('day', None)
 
@@ -260,7 +268,7 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
 
     # permission_classes = [IsAuthenticated]
     # только владельцы могли изменять и удалять свои задачи
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['status', 'deadline']
@@ -277,6 +285,10 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
     def get_queryset(self):
+        user = self.request.user
+        if not user.is_authenticated:
+            return SubTask.objects.none()  # Возвращаем пустой queryset
+
         return SubTask.objects.filter(owner=self.request.user)
 
 # Получение, обновление и удаление подзадачи
@@ -337,6 +349,51 @@ class MySubTaskListView(generics.ListAPIView):
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegistrationSerializer
     permission_classes = [AllowAny]
+
+class ProtectedDataView(APIView):
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"message": "Hello, authenticated user!", "user": request.user.username})
+
+# Реализация логина с сохранением токенов в куки
+class LoginView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            refresh = RefreshToken.for_user(user)
+            access_token = refresh.access_token
+
+            # Используем exp для установки времени истечения куки
+            access_expiry = datetime.utcfromtimestamp(access_token['exp'])
+            refresh_expiry = datetime.utcfromtimestamp(refresh['exp'])
+
+            response = Response(status=status.HTTP_200_OK)
+            response.set_cookie(
+                key='access_token',
+                value=str(access_token),
+                httponly=True,
+                secure=False,  # Используйте True для HTTPS
+                samesite='Lax',
+                expires=access_expiry
+            )
+            response.set_cookie(
+                key='refresh_token',
+                value=str(refresh),
+                httponly=True,
+                secure=False,
+                samesite='Lax',
+                expires=refresh_expiry
+            )
+            return response
+        else:
+            return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class LogoutView(APIView):
