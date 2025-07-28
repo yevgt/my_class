@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.utils import timezone
 from django.db.models import Count
+from django.db.models.functions import ExtractWeekDay
+from datetime import datetime
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -25,8 +27,26 @@ class TaskCreateView(generics.CreateAPIView):
 
 # Возвращает список всех задач через GET-запрос.
 class TaskListView(generics.ListAPIView):
-    queryset = Task.objects.all()
+    # queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
+
+    def get_queryset(self):
+        queryset = Task.objects.all()
+        day_of_week = self.request.query_params.get('day_of_week', None)
+        if day_of_week:
+            # Преобразуем день недели в число (1=понедельник, 7=воскресенье)
+            day_map = {
+                'monday': 1, 'tuesday': 2, 'wednesday': 3, 'thursday': 4,
+                'friday': 5, 'saturday': 6, 'sunday': 7
+            }
+            day_number = day_map.get(day_of_week.lower())
+            if day_number:
+                # Фильтруем по дню недели
+                queryset = queryset.annotate(week_day=ExtractWeekDay('deadline_date')).filter(week_day=day_number)
+            else:
+                # Если день недели некорректен, возвращаем пустой queryset
+                queryset = queryset.none()
+        return queryset
 
 # Возвращает задачу по id через GET-запрос.
 class TaskDetailView(generics.RetrieveAPIView):
@@ -50,8 +70,18 @@ class TaskStatisticsView(APIView):
 
 
 class SubTaskListCreateView(generics.ListCreateAPIView):
-    queryset = SubTask.objects.all()
+    # queryset = SubTask.objects.all().order_by('-created_at') # сортировка по убыванию
     serializer_class = SubTaskCreateSerializer
+
+    def get_queryset(self):
+        queryset = SubTask.objects.all().order_by('-created_at')
+        task_title = self.request.query_params.get('task_title', None)
+        status = self.request.query_params.get('status', None)
+        if task_title:
+            queryset = queryset.filter(task__title=task_title)
+        if status:
+            queryset = queryset.filter(status=status.upper())
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save()
@@ -71,7 +101,12 @@ class CategoryCreateView(generics.CreateAPIView):
         serializer.save()
 
 
-class CategoryUpdateView(generics.UpdateAPIView):
+# class CategoryUpdateView(generics.UpdateAPIView):
+#     queryset = Category.objects.all()
+#     serializer_class = CategoryCreateSerializer
+#     lookup_field = 'id'
+
+class CategoryDetailUpdateView(generics.RetrieveUpdateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryCreateSerializer
     lookup_field = 'id'

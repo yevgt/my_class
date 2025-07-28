@@ -8,7 +8,8 @@ from .views import (
     SubTaskListCreateView,
     SubTaskDetailUpdateDeleteView,
     CategoryCreateView,
-    CategoryUpdateView,
+    # CategoryUpdateView,
+    CategoryDetailUpdateView,
 )
 
 urlpatterns = [
@@ -20,5 +21,5 @@ urlpatterns = [
     path('api/subtasks/', SubTaskListCreateView.as_view(), name='subtask-list-create'),
     path('api/subtasks/<int:id>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail-update-delete'),
     path('api/categories/create/', CategoryCreateView.as_view(), name='category-create'),
-    path('api/categories/<int:id>/', CategoryUpdateView.as_view(), name='category-update'),
+    path('api/categories/<int:id>/', CategoryDetailUpdateView.as_view(), name='category-update'),
 ]
