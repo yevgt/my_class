@@ -6,6 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     list_filter = ('name',)
+    ordering = ('name',)
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
@@ -14,6 +15,8 @@ class TaskAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description')
     date_hierarchy = 'deadline'
     filter_horizontal = ('categories',)
+    ordering = ('-created_at',)
+    list_per_page = 25
 
     def get_categories(self, obj):
         return ", ".join(category.name for category in obj.categories.all())
@@ -25,3 +28,5 @@ class SubTaskAdmin(admin.ModelAdmin):
     list_filter = ('status', 'deadline', 'task')
     search_fields = ('title', 'description')
     date_hierarchy = 'deadline'
+    ordering = ('-created_at',)
+    list_per_page = 25
