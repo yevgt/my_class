@@ -1,0 +1,18 @@
+DEBUG 2025-07-29 01:36:03,985 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:36:03,992 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:36:54,105 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:36:54,110 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:37:43,488 utils (0.001) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."deadline_date", "task_manager_task"."created_at" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 7; args=(); alias=default
+DEBUG 2025-07-29 01:37:43,504 utils (0.001) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 4 ORDER BY "task_manager_subtask"."created_at" DESC; args=(4,); alias=default
+DEBUG 2025-07-29 01:37:43,505 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 3 ORDER BY "task_manager_subtask"."created_at" DESC; args=(3,); alias=default
+DEBUG 2025-07-29 01:37:43,507 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 2 ORDER BY "task_manager_subtask"."created_at" DESC; args=(2,); alias=default
+DEBUG 2025-07-29 01:37:43,511 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 1 ORDER BY "task_manager_subtask"."created_at" DESC; args=(1,); alias=default
+DEBUG 2025-07-29 01:38:48,230 utils (0.001) SELECT 1 AS "a" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."name" = 'Sun') LIMIT 1; args=(1, 'Sun'); alias=default
+DEBUG 2025-07-29 01:38:48,231 utils (0.000) SELECT 1 AS "a" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."name" = 'Sun') LIMIT 1; args=(1, 'Sun'); alias=default
+DEBUG 2025-07-29 01:38:48,236 utils (0.004) INSERT INTO "task_manager_category" ("name", "is_deleted", "deleted_at") VALUES ('Sun', 0, NULL) RETURNING "task_manager_category"."id"; args=('Sun', False, None); alias=default

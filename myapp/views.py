@@ -58,7 +58,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
     ordering_fields = ['created_at']
-    ordering = ['-created_at']
+    ordering = ['-created_at']  # Для CursorPagination
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -114,7 +114,7 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
     ordering_fields = ['created_at']
-    ordering = ['-created_at']
+    ordering = ['-created_at']  # Для CursorPagination
 
     def get_queryset(self):
         queryset = SubTask.objects.all().order_by('-created_at')
