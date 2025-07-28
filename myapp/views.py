@@ -4,15 +4,21 @@ from django.db.models import Count
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Task
-from .serializers import TaskSerializer
+from .models import Task, SubTask, Category
+from .serializers import (
+    TaskSerializer,
+    SubTaskCreateSerializer,
+    CategoryCreateSerializer,
+    TaskDetailSerializer,
+    TaskCreateSerializer,
+)
 
 def hello_view(request):
     return HttpResponse("<h1>Hello, YevgeniyG</h1>")
 
 class TaskCreateView(generics.CreateAPIView):
     queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+    serializer_class = TaskCreateSerializer
 
     def perform_create(self, serializer):
         serializer.save()
@@ -20,12 +26,12 @@ class TaskCreateView(generics.CreateAPIView):
 # Возвращает список всех задач через GET-запрос.
 class TaskListView(generics.ListAPIView):
     queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+    serializer_class = TaskDetailSerializer
 
 # Возвращает задачу по id через GET-запрос.
 class TaskDetailView(generics.RetrieveAPIView):
     queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+    serializer_class = TaskDetailSerializer
     lookup_field = 'id'
 
 # Агрегирующий эндпоинт для статистики задач
@@ -41,3 +47,31 @@ class TaskStatisticsView(APIView):
             'overdue_tasks': overdue_tasks
         }
         return Response(stats)
+
+
+class SubTaskListCreateView(generics.ListCreateAPIView):
+    queryset = SubTask.objects.all()
+    serializer_class = SubTaskCreateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class SubTaskDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubTask.objects.all()
+    serializer_class = SubTaskCreateSerializer
+    lookup_field = 'id'
+
+
+class CategoryCreateView(generics.CreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryCreateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class CategoryUpdateView(generics.UpdateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryCreateSerializer
+    lookup_field = 'id'
