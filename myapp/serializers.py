@@ -40,8 +40,8 @@ class SubTaskCreateSerializer(serializers.ModelSerializer):
 class CategoryCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name']
-        read_only_fields = ['id']
+        fields = ['id', 'name', 'is_deleted', 'deleted_at'] # чтобы они отображались в ответах, но не могли изменяться через API.
+        read_only_fields = ['id', 'is_deleted', 'deleted_at']
 
     def create(self, validated_data):
         name = validated_data['name']

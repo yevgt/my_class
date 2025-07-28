@@ -4,10 +4,11 @@ from django.db.models import Count
 from django.db.models.functions import ExtractWeekDay
 from django_filters.rest_framework import DjangoFilterBackend
 from datetime import datetime
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.decorators import action
 from .models import Task, SubTask, Category
 from .serializers import (
     TaskSerializer,
@@ -135,12 +136,12 @@ class SubTaskDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'id'
 
 
-class CategoryCreateView(generics.CreateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategoryCreateSerializer
-
-    def perform_create(self, serializer):
-        serializer.save()
+# class CategoryCreateView(generics.CreateAPIView):
+#     queryset = Category.objects.all()
+#     serializer_class = CategoryCreateSerializer
+#
+#     def perform_create(self, serializer):
+#         serializer.save()
 
 
 # class CategoryUpdateView(generics.UpdateAPIView):
@@ -148,7 +149,25 @@ class CategoryCreateView(generics.CreateAPIView):
 #     serializer_class = CategoryCreateSerializer
 #     lookup_field = 'id'
 
-class CategoryDetailUpdateView(generics.RetrieveUpdateAPIView):
+# class CategoryDetailUpdateView(generics.RetrieveUpdateAPIView):
+#     queryset = Category.objects.all()
+#     serializer_class = CategoryCreateSerializer
+#     lookup_field = 'id'
+
+class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategoryCreateSerializer
-    lookup_field = 'id'
+
+    @action(detail=False, methods=['get'])
+    def count_tasks(self, request):
+        categories = self.get_queryset().annotate(task_count=Count('tasks'))
+        serializer = self.get_serializer(categories, many=True)
+        data = [
+            {
+                'id': category['id'],
+                'name': category['name'],
+                'task_count': category['task_count']
+            }
+            for category in serializer.data
+        ]
+        return Response(data)

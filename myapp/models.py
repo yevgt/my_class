@@ -1,11 +1,28 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.utils import timezone
+
+# кастомный менеджер
+class CategoryManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_deleted=False)
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(null=True, blank=True) # для хранения времени удаления.
+
+    objects = CategoryManager()
+    all_objects = models.Manager()  # Для доступа к удаленным записям
+
     def __str__(self):
         return self.name
+
+    def delete(self, *args, **kwargs):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
 
     class Meta:
         db_table = 'task_manager_category'
