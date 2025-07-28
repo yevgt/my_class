@@ -1,9 +1,11 @@
 from django.urls import path
 from .views import (
     hello_view,
-    TaskCreateView,
-    TaskListView,
-    TaskDetailView,
+    # TaskCreateView,
+    # TaskListView,
+    # TaskDetailView,
+    TaskListCreateView,
+    TaskRetrieveUpdateDestroyView,
     TaskStatisticsView,
     SubTaskListCreateView,
     SubTaskDetailUpdateDeleteView,
@@ -14,9 +16,9 @@ from .views import (
 
 urlpatterns = [
     path('hello/', hello_view, name='hello'),
-    path('api/tasks/create/', TaskCreateView.as_view(), name='task-create'),
-    path('api/tasks/', TaskListView.as_view(), name='task-list'),
-    path('api/tasks/<int:id>/', TaskDetailView.as_view(), name='task-detail'),
+    # path('api/tasks/create/', TaskCreateView.as_view(), name='task-create'),
+    path('api/tasks/', TaskListCreateView.as_view(), name='task-list-create'),
+    path('api/tasks/<int:id>/', TaskRetrieveUpdateDestroyView.as_view(), name='task-detail-update-delete'),
     path('api/tasks/statistics/', TaskStatisticsView.as_view(), name='task-statistics'),
     path('api/subtasks/', SubTaskListCreateView.as_view(), name='subtask-list-create'),
     path('api/subtasks/<int:id>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail-update-delete'),

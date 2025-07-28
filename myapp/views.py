@@ -2,10 +2,12 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.db.models import Count
 from django.db.models.functions import ExtractWeekDay
+from django_filters.rest_framework import DjangoFilterBackend
 from datetime import datetime
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.filters import SearchFilter, OrderingFilter
 from .models import Task, SubTask, Category
 from .serializers import (
     TaskSerializer,
@@ -18,38 +20,70 @@ from .serializers import (
 def hello_view(request):
     return HttpResponse("<h1>Hello, YevgeniyG</h1>")
 
-class TaskCreateView(generics.CreateAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskCreateSerializer
-
-    def perform_create(self, serializer):
-        serializer.save()
+# class TaskCreateView(generics.CreateAPIView):
+#     queryset = Task.objects.all()
+#     serializer_class = TaskCreateSerializer
+#
+#     def perform_create(self, serializer):
+#         serializer.save()
 
 # Возвращает список всех задач через GET-запрос.
-class TaskListView(generics.ListAPIView):
-    # queryset = Task.objects.all()
+# class TaskListView(generics.ListAPIView):
+#     # queryset = Task.objects.all()
+#     serializer_class = TaskDetailSerializer
+#
+#     def get_queryset(self):
+#         queryset = Task.objects.all()
+#         day_of_week = self.request.query_params.get('day_of_week', None)
+#         if day_of_week:
+#             # Преобразуем день недели в число (1=понедельник, 7=воскресенье)
+#             day_map = {
+#                 'monday': 1, 'tuesday': 2, 'wednesday': 3, 'thursday': 4,
+#                 'friday': 5, 'saturday': 6, 'sunday': 7
+#             }
+#             day_number = day_map.get(day_of_week.lower())
+#             if day_number:
+#                 # Фильтруем по дню недели
+#                 queryset = queryset.annotate(week_day=ExtractWeekDay('deadline_date')).filter(week_day=day_number)
+#             else:
+#                 # Если день недели некорректен, возвращаем пустой queryset
+#                 queryset = queryset.none()
+#         return queryset
+
+class TaskListCreateView(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['status', 'deadline']
+    search_fields = ['title', 'description']
+    ordering_fields = ['created_at']
+    ordering = ['-created_at']
 
     def get_queryset(self):
-        queryset = Task.objects.all()
+        queryset = super().get_queryset()
         day_of_week = self.request.query_params.get('day_of_week', None)
         if day_of_week:
-            # Преобразуем день недели в число (1=понедельник, 7=воскресенье)
             day_map = {
                 'monday': 1, 'tuesday': 2, 'wednesday': 3, 'thursday': 4,
                 'friday': 5, 'saturday': 6, 'sunday': 7
             }
             day_number = day_map.get(day_of_week.lower())
             if day_number:
-                # Фильтруем по дню недели
                 queryset = queryset.annotate(week_day=ExtractWeekDay('deadline_date')).filter(week_day=day_number)
             else:
-                # Если день недели некорректен, возвращаем пустой queryset
                 queryset = queryset.none()
         return queryset
 
+    def perform_create(self, serializer):
+        serializer.save()
+
 # Возвращает задачу по id через GET-запрос.
-class TaskDetailView(generics.RetrieveAPIView):
+# class TaskDetailView(generics.RetrieveAPIView):
+#     queryset = Task.objects.all()
+#     serializer_class = TaskDetailSerializer
+#     lookup_field = 'id'
+
+class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
     lookup_field = 'id'
@@ -69,9 +103,17 @@ class TaskStatisticsView(APIView):
         return Response(stats)
 
 
+# class SubTaskListCreateView(generics.ListCreateAPIView):
+#     # queryset = SubTask.objects.all().order_by('-created_at') # сортировка по убыванию
+#     serializer_class = SubTaskCreateSerializer
+
 class SubTaskListCreateView(generics.ListCreateAPIView):
-    # queryset = SubTask.objects.all().order_by('-created_at') # сортировка по убыванию
     serializer_class = SubTaskCreateSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['status', 'deadline']
+    search_fields = ['title', 'description']
+    ordering_fields = ['created_at']
+    ordering = ['-created_at']
 
     def get_queryset(self):
         queryset = SubTask.objects.all().order_by('-created_at')
