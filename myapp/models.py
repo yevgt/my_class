@@ -30,6 +30,18 @@ class Category(models.Model):
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
+
+class TaskStatusChange(models.Model):
+    task = models.ForeignKey('Task', on_delete=models.CASCADE, related_name='status_changes')
+    status = models.CharField(max_length=20)
+    changed_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'task_manager_task_status_change'
+        verbose_name = 'Task Status Change'
+        verbose_name_plural = 'Task Status Changes'
+
+
 class Task(models.Model):
     STATUS_CHOICES = (
         ('NEW', 'New'),
@@ -48,6 +60,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
+    status_changed = models.BooleanField(default=False)  # Флаг для сигналов
 
     def __str__(self):
         return f"{self.title} ({self.deadline.date()})"
