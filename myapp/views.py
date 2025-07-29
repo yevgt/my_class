@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import Task, SubTask, Category
 from .serializers import (
     TaskSerializer,
@@ -17,6 +19,8 @@ from .serializers import (
     CategoryCreateSerializer,
     TaskDetailSerializer,
     TaskCreateSerializer,
+    UserRegistrationSerializer,
+    CustomTokenObtainPairSerializer,
 )
 from .permissions import IsOwner
 
@@ -52,6 +56,53 @@ def hello_view(request):
 #                 # Если день недели некорректен, возвращаем пустой queryset
 #                 queryset = queryset.none()
 #         return queryset
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        if response.status_code == 200:
+            response.set_cookie(
+                key='access_token',
+                value=response.data['access'],
+                httponly=True,
+                secure=False,  # Установите True в продакшене с HTTPS
+                samesite='Lax',
+                max_age=3600  # 1 час
+            )
+            response.set_cookie(
+                key='refresh_token',
+                value=response.data['refresh'],
+                httponly=True,
+                secure=False,  # Установите True в продакшене
+                samesite='Lax',
+                max_age=86400  # 1 день
+            )
+            del response.data['access']
+            del response.data['refresh']
+        return response
+
+
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        try:
+            refresh_token = request.COOKIES.get('refresh_token')
+            if refresh_token:
+                token = RefreshToken(refresh_token)
+                token.blacklist()
+            response = Response({"detail": "Successfully logged out."}, status=status.HTTP_200_OK)
+            response.delete_cookie('access_token')
+            response.delete_cookie('refresh_token')
+            return response
+        except Exception as e:
+            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+class UserRegistrationView(generics.CreateAPIView):
+    serializer_class = UserRegistrationSerializer
+    permission_classes = [AllowAny]
 
 class TaskListCreateView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
@@ -99,6 +150,8 @@ class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     lookup_field = 'id'
 
+    def perform_update(self, serializer):
+        serializer.save(status_changed=True)
 
 class CurrentUserTasksView(generics.ListAPIView):
     serializer_class = TaskDetailSerializer

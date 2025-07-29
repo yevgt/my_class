@@ -17,6 +17,9 @@ from .views import (
     # CategoryDetailUpdateView,
     CategoryViewSet,
     CurrentUserTasksView,
+    UserRegistrationView,
+    CustomTokenObtainPairView,
+    LogoutView,
 )
 from rest_framework.routers import DefaultRouter
 
@@ -45,10 +48,11 @@ urlpatterns = [
     path('api/subtasks/<int:id>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail-update-delete'),
     # path('api/categories/create/', CategoryCreateView.as_view(), name='category-create'),
     # path('api/categories/<int:id>/', CategoryDetailUpdateView.as_view(), name='category-update'),
+    path('api/register/', UserRegistrationView.as_view(), name='user-register'),
     path('api/', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-
+    path('api/logout/', LogoutView.as_view(), name='logout'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 

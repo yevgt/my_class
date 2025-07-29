@@ -285,3 +285,79 @@ DEBUG 2025-07-29 03:22:46,381 utils (0.002)
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None; alias=default
 DEBUG 2025-07-29 03:22:46,386 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:18:57,352 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:18:57,359 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:21:00,814 utils (0.002) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'test_regi' LIMIT 1; args=(1, 'test_regi'); alias=default
+DEBUG 2025-07-29 10:21:00,816 utils (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'test_regi' LIMIT 1; args=(1, 'test_regi'); alias=default
+DEBUG 2025-07-29 10:21:00,886 utils (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."email" = '123@gmail.com' LIMIT 1; args=(1, '123@gmail.com'); alias=default
+DEBUG 2025-07-29 10:21:45,357 utils (0.001) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'test_regi' LIMIT 1; args=(1, 'test_regi'); alias=default
+DEBUG 2025-07-29 10:21:45,358 utils (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'test_regi' LIMIT 1; args=(1, 'test_regi'); alias=default
+DEBUG 2025-07-29 10:21:45,361 utils (0.001) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."email" = '123@gmail.com' LIMIT 1; args=(1, '123@gmail.com'); alias=default
+DEBUG 2025-07-29 10:21:46,881 utils (0.004) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('pbkdf2_sha256$1000000$ob18VTcAWNKYuyYJyLB3Zw$Jr6UqWYwN+W4YR2mh9hHlJNLuZPIkZHb9MdTdgLqbws=', NULL, 0, 'test_regi', '', '', '123@gmail.com', 0, 1, '2025-07-29 08:21:45.364728') RETURNING "auth_user"."id"; args=('pbkdf2_sha256$1000000$ob18VTcAWNKYuyYJyLB3Zw$Jr6UqWYwN+W4YR2mh9hHlJNLuZPIkZHb9MdTdgLqbws=', None, False, 'test_regi', '', '', '123@gmail.com', False, True, '2025-07-29 08:21:45.364728'); alias=default
+DEBUG 2025-07-29 10:24:45,916 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:24:45,921 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:25:04,964 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:25:04,969 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:26:48,279 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:26:48,283 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:27:56,855 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:27:56,859 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:29:03,815 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:29:03,820 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:32:47,772 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:32:47,776 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:33:50,641 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:33:50,645 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:44:10,650 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:44:10,654 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:47:14,059 utils (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'test_regi' LIMIT 21; args=('test_regi',); alias=default
+DEBUG 2025-07-29 10:47:15,632 utils (0.000) INSERT INTO "token_blacklist_outstandingtoken" ("user_id", "jti", "token", "created_at", "expires_at") VALUES (3, '3c649d7a6edf46f1990a8e36ae4a7b34', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mzg2NTIzNSwiaWF0IjoxNzUzNzc4ODM1LCJqdGkiOiIzYzY0OWQ3YTZlZGY0NmYxOTkwYThlMzZhZTRhN2IzNCIsInVzZXJfaWQiOiIzIn0.E9x2vXmukdkhi47Z1LkiPHcx8q88rOYc6lo-E2_k-is', '2025-07-29 08:47:15.607144', '2025-07-30 08:47:15') RETURNING "token_blacklist_outstandingtoken"."id"; args=(3, '3c649d7a6edf46f1990a8e36ae4a7b34', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1Mzg2NTIzNSwiaWF0IjoxNzUzNzc4ODM1LCJqdGkiOiIzYzY0OWQ3YTZlZGY0NmYxOTkwYThlMzZhZTRhN2IzNCIsInVzZXJfaWQiOiIzIn0.E9x2vXmukdkhi47Z1LkiPHcx8q88rOYc6lo-E2_k-is', '2025-07-29 08:47:15.607144', '2025-07-30 08:47:15'); alias=default
+DEBUG 2025-07-29 10:47:15,673 utils (0.000) SELECT "token_blacklist_outstandingtoken"."id", "token_blacklist_outstandingtoken"."user_id", "token_blacklist_outstandingtoken"."jti", "token_blacklist_outstandingtoken"."token", "token_blacklist_outstandingtoken"."created_at", "token_blacklist_outstandingtoken"."expires_at" FROM "token_blacklist_outstandingtoken" ORDER BY "token_blacklist_outstandingtoken"."user_id" ASC LIMIT 21; args=(); alias=default
+DEBUG 2025-07-29 10:47:15,675 utils (0.000) SELECT "token_blacklist_outstandingtoken"."id", "token_blacklist_outstandingtoken"."user_id", "token_blacklist_outstandingtoken"."jti", "token_blacklist_outstandingtoken"."token", "token_blacklist_outstandingtoken"."created_at", "token_blacklist_outstandingtoken"."expires_at" FROM "token_blacklist_outstandingtoken" ORDER BY "token_blacklist_outstandingtoken"."user_id" ASC LIMIT 21; args=(); alias=default
+DEBUG 2025-07-29 10:49:32,418 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:49:32,424 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:51:58,150 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:51:58,154 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:53:05,038 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:53:05,042 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 10:57:34,987 utils (0.006) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 10:57:34,998 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

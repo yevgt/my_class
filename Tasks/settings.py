@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'drf_yasg',
     'myapp',
 ]
@@ -168,6 +169,8 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,      # При обновлении токена создается новый.
     'BLACKLIST_AFTER_ROTATION': True,  # Старые токены обновления блокируются.
     'AUTH_HEADER_TYPES': ('Bearer',),  # Ожидается заголовок Authorization: Bearer <token>.
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_OBTAIN_SERIALIZER': 'myapp.serializers.CustomTokenObtainPairSerializer',
 }
 
 # Логирование
