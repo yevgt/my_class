@@ -16,3 +16,92 @@ DEBUG 2025-07-29 01:37:43,511 utils (0.000) SELECT "task_manager_subtask"."id", 
 DEBUG 2025-07-29 01:38:48,230 utils (0.001) SELECT 1 AS "a" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."name" = 'Sun') LIMIT 1; args=(1, 'Sun'); alias=default
 DEBUG 2025-07-29 01:38:48,231 utils (0.000) SELECT 1 AS "a" FROM "task_manager_category" WHERE (NOT "task_manager_category"."is_deleted" AND "task_manager_category"."name" = 'Sun') LIMIT 1; args=(1, 'Sun'); alias=default
 DEBUG 2025-07-29 01:38:48,236 utils (0.004) INSERT INTO "task_manager_category" ("name", "is_deleted", "deleted_at") VALUES ('Sun', 0, NULL) RETURNING "task_manager_category"."id"; args=('Sun', False, None); alias=default
+DEBUG 2025-07-29 01:55:48,509 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:55:48,517 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:57:35,568 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:57:35,572 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:58:03,410 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:58:03,414 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:58:17,808 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:58:17,813 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:58:28,813 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:58:28,817 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:58:45,650 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:58:45,657 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 01:59:32,253 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 01:59:32,258 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:00:07,621 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:00:07,625 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:00:35,590 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:00:35,597 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:04:40,661 utils (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'test' LIMIT 21; args=('test',); alias=default
+DEBUG 2025-07-29 02:07:05,831 utils (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-07-29 02:10:24,049 utils (0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-07-29 02:19:08,859 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:19:08,867 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:20:56,070 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:20:56,076 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:21:23,141 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:21:23,151 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:21:52,928 utils (0.003) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:21:52,938 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:22:27,412 utils (0.005) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:22:27,420 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:22:39,187 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:22:39,196 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:25:04,219 utils (0.007) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-07-29 02:25:04,226 utils (0.001) SELECT "task_manager_task"."id", "task_manager_task"."title", "task_manager_task"."description", "task_manager_task"."status", "task_manager_task"."deadline", "task_manager_task"."deadline_date", "task_manager_task"."created_at" FROM "task_manager_task" ORDER BY "task_manager_task"."created_at" DESC LIMIT 7; args=(); alias=default
+DEBUG 2025-07-29 02:25:04,251 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 4 ORDER BY "task_manager_subtask"."created_at" DESC; args=(4,); alias=default
+DEBUG 2025-07-29 02:25:04,253 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 3 ORDER BY "task_manager_subtask"."created_at" DESC; args=(3,); alias=default
+DEBUG 2025-07-29 02:25:04,255 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 2 ORDER BY "task_manager_subtask"."created_at" DESC; args=(2,); alias=default
+DEBUG 2025-07-29 02:25:04,258 utils (0.000) SELECT "task_manager_subtask"."id", "task_manager_subtask"."title", "task_manager_subtask"."description", "task_manager_subtask"."task_id", "task_manager_subtask"."status", "task_manager_subtask"."deadline", "task_manager_subtask"."created_at" FROM "task_manager_subtask" WHERE "task_manager_subtask"."task_id" = 1 ORDER BY "task_manager_subtask"."created_at" DESC; args=(1,); alias=default
+DEBUG 2025-07-29 02:26:18,225 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:26:18,233 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

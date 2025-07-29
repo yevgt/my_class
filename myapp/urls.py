@@ -1,4 +1,5 @@
 from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .views import (
     hello_view,
     # TaskCreateView,
@@ -29,4 +30,6 @@ urlpatterns = [
     # path('api/categories/create/', CategoryCreateView.as_view(), name='category-create'),
     # path('api/categories/<int:id>/', CategoryDetailUpdateView.as_view(), name='category-update'),
     path('api/', include(router.urls)),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

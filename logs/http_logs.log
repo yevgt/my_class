@@ -1,0 +1,3 @@
+WARNING 2025-07-29 02:04:20,195 log Method Not Allowed: /api/token/
+WARNING 2025-07-29 02:04:42,398 log Unauthorized: /api/token/
+WARNING 2025-07-29 02:08:37,702 log Bad Request: /api/token/refresh/

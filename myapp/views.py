@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Task, SubTask, Category
 from .serializers import (
     TaskSerializer,
@@ -54,6 +55,9 @@ def hello_view(request):
 class TaskListCreateView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
+
+    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
@@ -87,10 +91,15 @@ class TaskListCreateView(generics.ListCreateAPIView):
 class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
+
+    permission_classes = [IsAuthenticated]
+
     lookup_field = 'id'
 
 # Агрегирующий эндпоинт для статистики задач
 class TaskStatisticsView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request):
         total_tasks = Task.objects.count()
         status_counts = Task.objects.values('status').annotate(count=Count('status'))
@@ -110,6 +119,9 @@ class TaskStatisticsView(APIView):
 
 class SubTaskListCreateView(generics.ListCreateAPIView):
     serializer_class = SubTaskCreateSerializer
+
+    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['status', 'deadline']
     search_fields = ['title', 'description']
@@ -133,6 +145,9 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
 class SubTaskDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = SubTask.objects.all()
     serializer_class = SubTaskCreateSerializer
+
+    permission_classes = [IsAuthenticated]
+
     lookup_field = 'id'
 
 
@@ -157,6 +172,8 @@ class SubTaskDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategoryCreateSerializer
+
+    permission_classes = [IsAuthenticated]
 
     @action(detail=False, methods=['get'])
     def count_tasks(self, request):

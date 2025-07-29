@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 
 # Инициализация environ
@@ -157,7 +158,15 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 5
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
-    'PAGE_SIZE': 6
+    'PAGE_SIZE': 5
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Токен доступа действителен 60 минут.
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # Токен обновления действителен 1 день.
+    'ROTATE_REFRESH_TOKENS': True,      # При обновлении токена создается новый.
+    'BLACKLIST_AFTER_ROTATION': True,  # Старые токены обновления блокируются.
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Ожидается заголовок Authorization: Bearer <token>.
 }
 
 # Логирование
