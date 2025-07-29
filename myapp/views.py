@@ -18,6 +18,7 @@ from .serializers import (
     TaskDetailSerializer,
     TaskCreateSerializer,
 )
+from .permissions import IsOwner
 
 def hello_view(request):
     return HttpResponse("<h1>Hello, YevgeniyG</h1>")
@@ -64,6 +65,9 @@ class TaskListCreateView(generics.ListCreateAPIView):
     ordering_fields = ['created_at']
     ordering = ['-created_at']  # Для CursorPagination
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
     def get_queryset(self):
         queryset = super().get_queryset()
         day_of_week = self.request.query_params.get('day_of_week', None)
@@ -79,8 +83,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
                 queryset = queryset.none()
         return queryset
 
-    def perform_create(self, serializer):
-        serializer.save()
+
 
 # Возвращает задачу по id через GET-запрос.
 # class TaskDetailView(generics.RetrieveAPIView):
@@ -92,9 +95,17 @@ class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner] # чтобы пользователь был владельцем для операций GET, PUT, PATCH, DELETE.
 
     lookup_field = 'id'
+
+
+class CurrentUserTasksView(generics.ListAPIView):
+    serializer_class = TaskDetailSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Task.objects.filter(owner=self.request.user)
 
 # Агрегирующий эндпоинт для статистики задач
 class TaskStatisticsView(APIView):
@@ -128,6 +139,9 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
     ordering_fields = ['created_at']
     ordering = ['-created_at']  # Для CursorPagination
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
     def get_queryset(self):
         queryset = SubTask.objects.all().order_by('-created_at')
         task_title = self.request.query_params.get('task_title', None)
@@ -138,15 +152,14 @@ class SubTaskListCreateView(generics.ListCreateAPIView):
             queryset = queryset.filter(status=status.upper())
         return queryset
 
-    def perform_create(self, serializer):
-        serializer.save()
+
 
 
 class SubTaskDetailUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = SubTask.objects.all()
     serializer_class = SubTaskCreateSerializer
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner] # чтобы пользователь был владельцем для операций GET, PUT, PATCH, DELETE.
 
     lookup_field = 'id'
 
@@ -174,6 +187,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategoryCreateSerializer
 
     permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save()
 
     @action(detail=False, methods=['get'])
     def count_tasks(self, request):

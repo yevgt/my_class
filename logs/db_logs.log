@@ -105,3 +105,183 @@ DEBUG 2025-07-29 02:26:18,225 utils (0.002)
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None; alias=default
 DEBUG 2025-07-29 02:26:18,233 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:34:22,652 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:34:22,659 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:35:15,049 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:35:15,054 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:36:04,328 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:36:04,335 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:38:29,041 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:38:29,045 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,034 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,038 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,039 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,040 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,059 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,060 utils (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,060 utils (0.000) PRAGMA foreign_keys; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,060 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,073 schema CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2025-07-29 02:44:44,079 utils (0.005) CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+DEBUG 2025-07-29 02:44:44,079 schema INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:44:44,080 utils (0.001) INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,081 schema DROP TABLE "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:44:44,082 utils (0.001) DROP TABLE "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,082 schema ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:44:44,086 utils (0.004) ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,091 schema CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); (params ())
+DEBUG 2025-07-29 02:44:44,092 utils (0.000) CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); args=(); alias=default
+DEBUG 2025-07-29 02:44:44,092 schema CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:44:44,092 utils (0.000) CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:44:44,108 schema CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); (params None)
+DEBUG 2025-07-29 02:44:44,109 utils (0.001) CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); args=None; alias=default
+DEBUG 2025-07-29 02:44:44,109 schema INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:44:44,110 utils (0.000) INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,110 schema DROP TABLE "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:44:44,111 utils (0.001) DROP TABLE "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,112 schema ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:44:44,113 utils (0.001) ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:44:44,113 schema CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:44:44,114 utils (0.000) CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:44:44,115 utils (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:44:44.114356') RETURNING "django_migrations"."id"; args=('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:44:44.114356'); alias=default
+DEBUG 2025-07-29 02:44:44,115 utils (0.000) PRAGMA foreign_key_check; args=None; alias=default
+DEBUG 2025-07-29 02:44:44,117 utils (0.000) PRAGMA foreign_key_list("task_manager_task"); args=None; alias=default
+DEBUG 2025-07-29 02:44:44,117 utils (0.000) PRAGMA table_info("task_manager_task"); args=None; alias=default
+DEBUG 2025-07-29 02:44:44,118 utils (0.000) SELECT "id", "owner_id" FROM "task_manager_task" WHERE rowid = 1; args=(1,); alias=default
+DEBUG 2025-07-29 02:48:48,741 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,746 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,748 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,748 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,778 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,779 utils (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,779 utils (0.000) PRAGMA foreign_keys; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,779 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,801 schema CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2025-07-29 02:48:48,803 utils (0.002) CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+DEBUG 2025-07-29 02:48:48,803 schema INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:48:48,804 utils (0.000) INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,804 schema DROP TABLE "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:48:48,805 utils (0.001) DROP TABLE "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,806 schema ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:48:48,808 utils (0.003) ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,809 schema CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); (params ())
+DEBUG 2025-07-29 02:48:48,810 utils (0.000) CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); args=(); alias=default
+DEBUG 2025-07-29 02:48:48,810 schema CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:48:48,810 utils (0.000) CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:48:48,841 schema CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); (params None)
+DEBUG 2025-07-29 02:48:48,841 utils (0.000) CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); args=None; alias=default
+DEBUG 2025-07-29 02:48:48,842 schema INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:48:48,842 utils (0.000) INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,842 schema DROP TABLE "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:48:48,843 utils (0.001) DROP TABLE "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,843 schema ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:48:48,846 utils (0.002) ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:48:48,846 schema CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:48:48,847 utils (0.000) CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:48:48,849 utils (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:48:48.848351') RETURNING "django_migrations"."id"; args=('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:48:48.848351'); alias=default
+DEBUG 2025-07-29 02:48:48,850 utils (0.000) PRAGMA foreign_key_check; args=None; alias=default
+DEBUG 2025-07-29 02:48:48,850 utils (0.000) PRAGMA foreign_key_list("task_manager_task"); args=None; alias=default
+DEBUG 2025-07-29 02:48:48,850 utils (0.000) PRAGMA table_info("task_manager_task"); args=None; alias=default
+DEBUG 2025-07-29 02:48:48,851 utils (0.000) SELECT "id", "owner_id" FROM "task_manager_task" WHERE rowid = 1; args=(1,); alias=default
+DEBUG 2025-07-29 02:51:18,384 utils (0.002) INSERT INTO "auth_user" ("id", "password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (2, '1_Pasword_1', NULL, 0, 'placeholder', '', '', 'temp@example.com', 0, 1, '2025-07-29 00:51:18.378260') RETURNING "auth_user"."id"; args=(2, '1_Pasword_1', None, False, 'placeholder', '', '', 'temp@example.com', False, True, '2025-07-29 00:51:18.378260'); alias=default
+DEBUG 2025-07-29 02:51:39,766 utils (0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,770 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,771 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,772 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,790 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,791 utils (0.000) PRAGMA foreign_keys = OFF; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,791 utils (0.000) PRAGMA foreign_keys; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,791 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,804 schema CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); (params None)
+DEBUG 2025-07-29 02:51:39,805 utils (0.001) CREATE TABLE "new__task_manager_subtask" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "created_at" datetime NOT NULL, "task_id" bigint NOT NULL REFERENCES "task_manager_task" ("id") DEFERRABLE INITIALLY DEFERRED, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED); args=None; alias=default
+DEBUG 2025-07-29 02:51:39,806 schema INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:51:39,806 utils (0.000) INSERT INTO "new__task_manager_subtask" ("id", "title", "description", "status", "deadline", "created_at", "task_id", "owner_id") SELECT "id", "title", "description", "status", "deadline", "created_at", "task_id", 1 FROM "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,806 schema DROP TABLE "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:51:39,807 utils (0.000) DROP TABLE "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,807 schema ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; (params ())
+DEBUG 2025-07-29 02:51:39,808 utils (0.002) ALTER TABLE "new__task_manager_subtask" RENAME TO "task_manager_subtask"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,809 schema CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); (params ())
+DEBUG 2025-07-29 02:51:39,809 utils (0.000) CREATE INDEX "task_manager_subtask_task_id_95d6e401" ON "task_manager_subtask" ("task_id"); args=(); alias=default
+DEBUG 2025-07-29 02:51:39,809 schema CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:51:39,810 utils (0.000) CREATE INDEX "task_manager_subtask_owner_id_49dc8d25" ON "task_manager_subtask" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:51:39,825 schema CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); (params None)
+DEBUG 2025-07-29 02:51:39,825 utils (0.000) CREATE TABLE "new__task_manager_task" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL UNIQUE, "description" text NOT NULL, "status" varchar(20) NOT NULL, "deadline" datetime NOT NULL, "deadline_date" date NOT NULL, "created_at" datetime NOT NULL, "owner_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, CONSTRAINT "unique_title_per_date" UNIQUE ("title", "deadline_date")); args=None; alias=default
+DEBUG 2025-07-29 02:51:39,825 schema INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:51:39,826 utils (0.000) INSERT INTO "new__task_manager_task" ("id", "title", "description", "status", "deadline", "deadline_date", "created_at", "owner_id") SELECT "id", "title", "description", "status", "deadline", "deadline_date", "created_at", 2 FROM "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,826 schema DROP TABLE "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:51:39,826 utils (0.001) DROP TABLE "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,827 schema ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; (params ())
+DEBUG 2025-07-29 02:51:39,828 utils (0.001) ALTER TABLE "new__task_manager_task" RENAME TO "task_manager_task"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,828 schema CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); (params ())
+DEBUG 2025-07-29 02:51:39,829 utils (0.000) CREATE INDEX "task_manager_task_owner_id_848c5118" ON "task_manager_task" ("owner_id"); args=(); alias=default
+DEBUG 2025-07-29 02:51:39,830 utils (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:51:39.829872') RETURNING "django_migrations"."id"; args=('myapp', '0005_subtask_owner_task_owner', '2025-07-29 00:51:39.829872'); alias=default
+DEBUG 2025-07-29 02:51:39,831 utils (0.000) PRAGMA foreign_key_check; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,836 utils (0.005) COMMIT; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,837 utils (0.000) PRAGMA foreign_keys = ON; args=None; alias=default
+DEBUG 2025-07-29 02:51:39,837 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-07-29 02:51:39,839 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+DEBUG 2025-07-29 02:51:39,841 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+DEBUG 2025-07-29 02:51:39,845 utils (0.001) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(1,); alias=default
+DEBUG 2025-07-29 02:51:39,846 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+DEBUG 2025-07-29 02:51:39,847 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+DEBUG 2025-07-29 02:51:39,848 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('permission', 'user', 'group')); args=('auth', 'permission', 'user', 'group'); alias=default
+DEBUG 2025-07-29 02:51:39,851 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(2, 3, 4); alias=default
+DEBUG 2025-07-29 02:51:39,852 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+DEBUG 2025-07-29 02:51:39,854 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+DEBUG 2025-07-29 02:51:39,855 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+DEBUG 2025-07-29 02:51:39,857 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(5,); alias=default
+DEBUG 2025-07-29 02:51:39,857 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+DEBUG 2025-07-29 02:51:39,858 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+DEBUG 2025-07-29 02:51:39,859 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+DEBUG 2025-07-29 02:51:39,861 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(6,); alias=default
+DEBUG 2025-07-29 02:51:39,862 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+DEBUG 2025-07-29 02:51:39,863 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'rest_framework_simplejwt'; args=('rest_framework_simplejwt',); alias=default
+DEBUG 2025-07-29 02:51:39,864 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'rest_framework_simplejwt'; args=('rest_framework_simplejwt',); alias=default
+DEBUG 2025-07-29 02:51:39,865 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+DEBUG 2025-07-29 02:51:39,867 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'myapp' AND "django_content_type"."model" IN ('subtask', 'task', 'category')); args=('myapp', 'subtask', 'task', 'category'); alias=default
+DEBUG 2025-07-29 02:51:39,870 utils (0.000) SELECT "auth_permission"."content_type_id" AS "content_type", "auth_permission"."codename" AS "codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 9, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, 2 ASC; args=(8, 9, 7); alias=default
+DEBUG 2025-07-29 02:51:39,872 utils (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'myapp'; args=('myapp',); alias=default
+DEBUG 2025-07-29 03:22:46,381 utils (0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-07-29 03:22:46,386 utils (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

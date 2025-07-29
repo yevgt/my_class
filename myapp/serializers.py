@@ -6,8 +6,8 @@ from django.utils import timezone
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'title', 'description', 'status', 'deadline', 'created_at']
-        read_only_fields = ['id', 'created_at']
+        fields = ['id', 'title', 'description', 'status', 'deadline', 'created_at', 'owner']
+        read_only_fields = ['id', 'created_at','owner']
 
     def validate_title(self, value):
         if Task.objects.filter(title=value).exists():
@@ -23,8 +23,8 @@ class TaskSerializer(serializers.ModelSerializer):
 class SubTaskCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubTask
-        fields = ['id', 'title', 'description', 'task', 'status', 'deadline', 'created_at']
-        read_only_fields = ['id', 'created_at']
+        fields = ['id', 'title', 'description', 'task', 'status', 'deadline', 'created_at', 'owner']
+        read_only_fields = ['id', 'created_at', 'owner']
 
     def validate_title(self, value):
         if SubTask.objects.filter(title=value).exists():
@@ -62,8 +62,8 @@ class TaskDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['id', 'title', 'description', 'status', 'deadline', 'created_at', 'subtasks']
-        read_only_fields = ['id', 'created_at']
+        fields = ['id', 'title', 'description', 'status', 'deadline', 'created_at', 'subtasks', 'owner']
+        read_only_fields = ['id', 'created_at', 'owner']
 
 class TaskCreateSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # кастомный менеджер
 class CategoryManager(models.Manager):
@@ -46,6 +47,8 @@ class Task(models.Model):
     deadline_date = models.DateField(editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
+
     def __str__(self):
         return f"{self.title} ({self.deadline.date()})"
 
@@ -86,6 +89,8 @@ class SubTask(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='NEW')
     deadline = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subtasks')
 
     def __str__(self):
         return f"{self.title} (Subtask of {self.task.title})"
